@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/ubahdata', [MahasiswaController::class, 'ubahData']);
+Route::post('/simpan/perubahan', [MahasiswaController::class, 'simpanPerubahan']);
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {

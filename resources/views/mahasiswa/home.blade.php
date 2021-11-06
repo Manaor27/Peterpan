@@ -49,7 +49,7 @@
           <div class="box">
             <div class="box-header">
             <div class="col-md-12">
-              <a type="button" class="btn btn-block btn-success" href="/user/tambah"><b> Ubah Data </b></a>
+              <a type="button" class="btn btn-block btn-success" href="/ubahdata"><b> Ubah Data </b></a>
             </div>
             </div>
             <!-- /.box-header -->

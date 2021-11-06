@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dashboard</title>
-  <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
+  <link rel="icon" href="https://eclass.ukdw.ac.id/images/favicon.png" type="image/png" />
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -39,7 +39,55 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style>
+    /* FROM HTTP://WWW.GETBOOTSTRAP.COM
+     * Glyphicons
+     *
+     * Special styles for displaying the icons and their classes in the docs.
+     */
 
+    .bs-glyphicons {
+      padding-left: 0;
+      padding-bottom: 1px;
+      margin-bottom: 20px;
+      list-style: none;
+      overflow: hidden;
+    }
+
+    .bs-glyphicons li {
+      float: left;
+      width: 25%;
+      height: 115px;
+      padding: 10px;
+      margin: 0 -1px -1px 0;
+      font-size: 12px;
+      line-height: 1.4;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    .bs-glyphicons .glyphicon {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .bs-glyphicons .glyphicon-class {
+      display: block;
+      text-align: center;
+      word-wrap: break-word; /* Help out IE10+ with class names */
+    }
+
+    .bs-glyphicons li:hover {
+      background-color: rgba(86, 61, 124, .1);
+    }
+
+    @media (min-width: 768px) {
+      .bs-glyphicons li {
+        width: 12.5%;
+      }
+    }
+  </style>
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -50,9 +98,9 @@
     <!-- Logo -->
     <a href="/home" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>SISM</b></span>
+      <span class="logo-mini"><img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" style="width:30px;height:40px;"></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Surat Menyurat</b> FTI</span>
+      <span class="logo-lg"><b>Perubahan Data</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">

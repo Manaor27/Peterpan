@@ -27,6 +27,7 @@ class CreateDataMahasiswa extends Migration
             $table->float('ipk')->nullable();
             $table->string('no_ijazah')->nullable();
             $table->string('tempat_lahir');
+            $table->date('tgl_lahir');
             $table->string('jenis_kelamin');
             $table->string('alamat');
             $table->string('kota');
