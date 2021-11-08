@@ -8,6 +8,7 @@ use DB;
 use App\Models\Mahasiswa;
 use App\Models\Jenis;
 use App\Models\Perubahan;
+use App\Models\DocPendukung;
 
 class MahasiswaController extends Controller
 {
@@ -27,12 +28,66 @@ class MahasiswaController extends Controller
             'id_user' => $request->id_user,
             'id_jenis' => $request->jenis,
             'data_lama' => $request->data_lama,
-            'data_baru' => $request->data_baru
+            'data_baru' => $request->data_baru,
+            'status' => 'on process'
         ]);
+        return redirect('/upload');
+    }
+
+    public function uploadBerkas() {
         $ubah = DB::table('perubahan')->where('id_user',Auth::user()->id)->orderBy('id','desc')->limit('1')->get();
         foreach ($ubah as $ub) {
             $u = Perubahan::find($ub->id);
-            return view('ubahdata2', compact('u'));
+            return view('data', compact('u'));
         }
+    }
+
+    public function simpanBerkas(Request $request,$id) {
+        $u = Perubahan::find($id);
+        return view('ubahdt', compact('u'));
+    }
+
+    public function save(Request $request) {
+        $request->validate([
+            'ktm' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
+            'ijazah' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
+            'transkrip' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
+            'khs' => 'required|jpg,jpeg,png,doc,docx,pdf',
+            'akte' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
+            'kk' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
+            'surat' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
+        ]);
+        $ktm = $request->file('ktm');
+        $ktmName = 'ktm_'.Auth::user()->mahasiswa->nim. $ktm->getClientOriginalName();
+        $ktm->move('ktm/', $ktmName);
+        $ijazah = $request->file('ijazah');
+        $ijazahName = 'ijazah_'. Auth::user()->mahasiswa->nim. $ijazah->getClientOriginalName();
+        $ijazah->move('ijazah/', $ijazahName);
+        $transkrip = $request->file('transkrip');
+        $transkripName = 'transkrip_'. Auth::user()->mahasiswa->nim. $transkrip->getClientOriginalName();
+        $transkrip->move('transkrip/', $transkripName);
+        $khs = $request->file('khs');
+        $khsName = 'khs_'. Auth::user()->mahasiswa->nim. $khs->getClientOriginalName();
+        $khs->move('khs/', $khsName);
+        $akte = $request->file('akte');
+        $akteName = 'akte_'. Auth::user()->mahasiswa->nim. $akte->getClientOriginalName();
+        $akte->move('akte/', $akteName);
+        $kk = $request->file('kk');
+        $kkName = 'kk_'. Auth::user()->mahasiswa->nim. $kk->getClientOriginalName();
+        $kk->move('kk/', $kkName);
+        $surat = $request->file('surat');
+        $suratName = 'surat_'. Auth::user()->mahasiswa->nim. $surat->getClientOriginalName();
+        $surat->move('surat/', $suratName);
+        DocPendukung::create([
+            'ktm' => $ktmName,
+            'ijazah' => $ijazahName,
+            'transkrip' => $transkripName,
+            'khs' => $khsName,
+            'akte' => $akteName,
+            'kk' => $kkName,
+            'surat' => $suratName,
+            'id_perubahan' => $request->id
+        ]);
+        return redirect('/home');
     }
 }

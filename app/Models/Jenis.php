@@ -12,6 +12,6 @@ class Jenis extends Model
     protected $fillable = ['jenis_perubahan'];
 
     public function perubahan() {
-		return $this->hasOne(Perubahan::class, 'id_jenis');
-	}
+      return $this->hasOne(Perubahan::class, 'id_jenis');
+    }
 }

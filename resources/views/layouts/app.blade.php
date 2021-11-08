@@ -169,7 +169,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview">
+        <!--li class="treeview">
           <a href="#">
             <i class="fa fa-send"></i> <span>Jenis Surat</span>
             <span class="pull-right-container">
@@ -191,23 +191,23 @@
             <li><a href="{{url('/dosen/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
             @endif
           </ul>
-        </li>
-        <!--li>
-          <a href="/suratMasuk">
-            <i class="fa fa-inbox"></i> <span>Surat Masuk</span>
-          </a>
         </li-->
-        @if(Auth::user()->role=='admin')
+        @if(Auth::user()->role=='mahasiswa')
+        <li>
+          <a href="/upload">
+            <i class="fa fa-folder"></i> <span>Data Perubahan</span>
+          </a>
+        </li>
         <!--li>
           <a href="/klasifikasi">
             <i class="fa fa-file-text"></i> <span>Klasifikasi Surat</span>
           </a>
         </li-->
-        <li>
+        <!--li>
           <a href="/suratTerkirim">
             <i class="fa fa-reply"></i> <span>Terkirim</span>
           </a>
-        </li>
+        </li-->
         <!--li>
           <a href="/user">
             <i class="fa fa-group"></i> <span>Manajemen User</span>

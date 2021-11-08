@@ -21,6 +21,7 @@ class CreatePerubahanTable extends Migration
             $table->foreign('id_jenis')->references('id')->on('jenis')->onDelete('CASCADE');
             $table->string('data_lama');
             $table->string('data_baru');
+            $table->string('status');
             $table->timestamps();
         });
     }

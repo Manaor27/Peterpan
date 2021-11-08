@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,11 +52,11 @@
                 </div>
                 <div class="form-group">
                   <label>Data Lama</label>
-                  <input type="text" class="form-control" name="data_lama" placeholder="Input Data Lama">
+                  <input type="text" class="form-control" name="data_lama" placeholder="Input Data Lama" required>
                 </div>
                 <div class="form-group">
                   <label>Data Baru</label>
-                  <input type="text" class="form-control" placeholder="Input Data Baru" name="data_baru">
+                  <input type="text" class="form-control" placeholder="Input Data Baru" name="data_baru" required>
                 </div>
               </div>
               <div class="box-footer">
