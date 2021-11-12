@@ -73,7 +73,7 @@
                   <td>{{ $no++ }}</td>
                   <td>{{ $item->perubahan->jenis->jenis_perubahan }}</td>
                   <td>{{ $item->perubahan->user->mahasiswa->nama }}</td>
-                  <td><span class="label bg-green">On Process</span></td>
+                  <td><span class="label bg-yellow">On Process</span></td>
                   <td>
                     <a data-attr="{{url('/admin/preview/'. $item->suratid)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                       <i class="fa fa-eye"></i> Preview

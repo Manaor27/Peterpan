@@ -48,36 +48,64 @@ class MahasiswaController extends Controller
     }
 
     public function save(Request $request) {
-        $request->validate([
+        /*$request->validate([
             'ktm' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
             'ijazah' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
             'transkrip' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
-            'khs' => 'required|jpg,jpeg,png,doc,docx,pdf',
+            'khs' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
             'akte' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
             'kk' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
             'surat' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
-        ]);
+        ]);*/
         $ktm = $request->file('ktm');
-        $ktmName = 'ktm_'.Auth::user()->mahasiswa->nim. $ktm->getClientOriginalName();
-        $ktm->move('ktm/', $ktmName);
+        if ($ktm==null) {
+            $ktmName = null;
+        }else {
+            $ktmName = 'ktm_'.Auth::user()->mahasiswa->nim. $ktm->getClientOriginalName();
+            $ktm->move('ktm/', $ktmName);
+        }
         $ijazah = $request->file('ijazah');
-        $ijazahName = 'ijazah_'. Auth::user()->mahasiswa->nim. $ijazah->getClientOriginalName();
-        $ijazah->move('ijazah/', $ijazahName);
+        if ($ijazah==null) {
+            $ijazahName = null;
+        }else {
+            $ijazahName = 'ijazah_'. Auth::user()->mahasiswa->nim. $ijazah->getClientOriginalName();
+            $ijazah->move('ijazah/', $ijazahName);
+        }
         $transkrip = $request->file('transkrip');
-        $transkripName = 'transkrip_'. Auth::user()->mahasiswa->nim. $transkrip->getClientOriginalName();
-        $transkrip->move('transkrip/', $transkripName);
+        if ($transkrip==null) {
+            $transkripName = null;
+        }else {
+            $transkripName = 'transkrip_'. Auth::user()->mahasiswa->nim. $transkrip->getClientOriginalName();
+            $transkrip->move('transkrip/', $transkripName);
+        }
         $khs = $request->file('khs');
-        $khsName = 'khs_'. Auth::user()->mahasiswa->nim. $khs->getClientOriginalName();
-        $khs->move('khs/', $khsName);
+        if ($khs==null) {
+            $khsName = null;
+        }else {
+            $khsName = 'khs_'. Auth::user()->mahasiswa->nim. $khs->getClientOriginalName();
+            $khs->move('khs/', $khsName);
+        }
         $akte = $request->file('akte');
-        $akteName = 'akte_'. Auth::user()->mahasiswa->nim. $akte->getClientOriginalName();
-        $akte->move('akte/', $akteName);
+        if ($akte==null) {
+            $akteName = null;
+        }else {
+            $akteName = 'akte_'. Auth::user()->mahasiswa->nim. $akte->getClientOriginalName();
+            $akte->move('akte/', $akteName);
+        }
         $kk = $request->file('kk');
-        $kkName = 'kk_'. Auth::user()->mahasiswa->nim. $kk->getClientOriginalName();
-        $kk->move('kk/', $kkName);
+        if ($kk==null) {
+            $kkName = null;
+        }else {
+            $kkName = 'kk_'. Auth::user()->mahasiswa->nim. $kk->getClientOriginalName();
+            $kk->move('kk/', $kkName);
+        }
         $surat = $request->file('surat');
-        $suratName = 'surat_'. Auth::user()->mahasiswa->nim. $surat->getClientOriginalName();
-        $surat->move('surat/', $suratName);
+        if ($surat==null) {
+            $suratName = null;
+        }else {
+            $suratName = 'surat_'. Auth::user()->mahasiswa->nim. $surat->getClientOriginalName();
+            $surat->move('surat/', $suratName);
+        }
         DocPendukung::create([
             'ktm' => $ktmName,
             'ijazah' => $ijazahName,
