@@ -88,6 +88,7 @@
       }
     }
   </style>
+  
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -115,7 +116,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <p class="fa fa-user"></p>
-              @if(Auth::user()->role=='Admin')
+              @if(Auth::user()->role=='admin')
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
               @else
               <span class="hiddden-xs">{{ Auth::user()->mahasiswa->nama }}</span>
@@ -125,7 +126,7 @@
               <!-- User image -->
               <li class="user-header">
                 <p>
-                  @if(Auth::user()->role=='Admin')
+                  @if(Auth::user()->role=='admin')
                     Kode &nbsp&nbsp&nbsp&nbsp&nbsp: {{ Auth::user()->kode }}<br/>
                     Nama &nbsp&nbsp&nbsp&nbsp: {{ Auth::user()->name }}<br/>
                   @else
@@ -152,7 +153,7 @@
           <img src="style/dist/img/icon.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-            @if(Auth::user()->role=='Admin')
+            @if(Auth::user()->role=='admin')
           <p>{{ Auth::user()->name }}</p>
           @else
           <p>{{ Auth::user()->mahasiswa->nama }}</p>
@@ -208,11 +209,12 @@
             <i class="fa fa-reply"></i> <span>Terkirim</span>
           </a>
         </li-->
-        <!--li>
+        @else
+        <li>
           <a href="/user">
             <i class="fa fa-group"></i> <span>Manajemen User</span>
           </a>
-        </li-->
+        </li>
         @endif
       </ul>
     </section>

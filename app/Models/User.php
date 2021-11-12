@@ -31,6 +31,10 @@ class User extends Authenticatable
 		return $this->belongsTo(Mahasiswa::class, 'id_mhs');
 	}
 
+    public function perubahan() {
+        return $this->hasOne(Perubahan::class, 'id_user');
+      }
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -13,10 +13,14 @@ class Perubahan extends Model
     protected $fillable = ['id_user','id_jenis','data_lama','data_baru','status'];
 
     public function jenis() {
-		return $this->belongsTo(Jenis::class, 'id_jenis');
-	}
+      return $this->belongsTo(Jenis::class, 'id_jenis');
+    }
+
+    public function user() {
+      return $this->belongsTo(User::class, 'id_user');
+    }
 
     public function docpendukung() {
-        return $this->hasOne(DocPendukung::class, 'id_perubahan');
-      }
+      return $this->hasOne(DocPendukung::class, 'id_perubahan');
+    }
 }

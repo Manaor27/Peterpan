@@ -36,13 +36,16 @@
               <!-- Font Awesome Icons -->
               <div class="tab-pane active" id="update">
                 <section id="new">
-                <form role="form" method="POST" action="/simpan/perubahan">
+                <form role="form" method="POST" action="/simpan/perubahan" name="form1" id="form1">
                 @csrf
               <div class="box-body">
               <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
                 <div class="form-group">
                   <label>Jenis Perubahan</label>
-                  <select name="jenis" class="form-control">
+                  <select name="jenis" class="form-control" onchange='tampilkan()' id="jenis">
+                    <option value="0" selected>
+                      -- Pilih Jenis Perubahan --
+                    </option>
                   @foreach($jns as $j)
                     <option value="{{ $j->id }}">
                         {{ $j->jenis_perubahan }}
@@ -52,7 +55,7 @@
                 </div>
                 <div class="form-group">
                   <label>Data Lama</label>
-                  <input type="text" class="form-control" name="data_lama" placeholder="Input Data Lama" required>
+                  <input type="text" class="form-control" name="data_lama" id="data_lama" placeholder="Input Data Lama" required>
                 </div>
                 <div class="form-group">
                   <label>Data Baru</label>
