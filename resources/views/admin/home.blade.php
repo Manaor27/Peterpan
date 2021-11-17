@@ -75,13 +75,13 @@
                   <td>{{ $item->perubahan->user->mahasiswa->nama }}</td>
                   <td><span class="label bg-yellow">On Process</span></td>
                   <td>
-                    <a data-attr="{{url('/admin/preview/'. $item->suratid)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
+                    <a href="{{url('/admin/preview/'. $item->id)}}" class="btn btn-app bg-green">
                       <i class="fa fa-eye"></i> Preview
                     </a>
-                    <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->informasiid)}}">
+                    <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
                       <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->suratid)}}">
+                    <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->id)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a>
                   </td>

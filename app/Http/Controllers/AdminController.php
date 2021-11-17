@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\DocPendukung;
+use App\Models\Perubahan;
 
 class AdminController extends Controller
 {
@@ -17,5 +18,10 @@ class AdminController extends Controller
     public function preview($id) {
         $data = DocPendukung::find($id);
         return view('admin.preview', compact('data'));
+    }
+
+    public function validasi($id) {
+        $valid = Perubahan::find($id);
+        return view('admin.validasi', compact('valid'));
     }
 }

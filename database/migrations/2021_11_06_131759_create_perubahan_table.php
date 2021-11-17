@@ -22,6 +22,7 @@ class CreatePerubahanTable extends Migration
             $table->string('data_lama');
             $table->string('data_baru');
             $table->string('status');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }
