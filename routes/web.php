@@ -13,6 +13,9 @@ Route::post('/simpan/perubahan', [MahasiswaController::class, 'simpanPerubahan']
 Route::get('/upload', [MahasiswaController::class, 'uploadBerkas']);
 Route::get('/simpan/berkas/{id}', [MahasiswaController::class, 'simpanBerkas']);
 Route::post('/save', [MahasiswaController::class, 'save']);
+Route::get('/mahasiswa/tampil/{id}', [MahasiswaController::class, 'tampil']);
+
+Route::get('/admin/preview/{id}', [AdminController::class, 'preview']);
 
 Auth::routes();
 

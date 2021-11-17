@@ -35,11 +35,9 @@ class MahasiswaController extends Controller
     }
 
     public function uploadBerkas() {
-        $ubah = DB::table('perubahan')->where('id_user',Auth::user()->id)->orderBy('id','desc')->limit('1')->get();
-        foreach ($ubah as $ub) {
-            $u = Perubahan::find($ub->id);
-            return view('data', compact('u'));
-        }
+        $ubah = Perubahan::where('id_user',Auth::user()->id)->get();
+        $doc = DocPendukung::all();
+        return view('data', compact('ubah','doc'));
     }
 
     public function simpanBerkas(Request $request,$id) {
@@ -117,5 +115,14 @@ class MahasiswaController extends Controller
             'id_perubahan' => $request->id
         ]);
         return redirect('/home');
+    }
+
+    public function tampil($id) {
+        $doc = DB::table('doc_pendukung')->join('perubahan','id_perubahan','=','perubahan.id')->where('perubahan.id_user',Auth::user()->id)->get();
+        if ($id==1) {
+            return view('mahasiswa.ktm', compact('doc'));
+        }elseif ($id==4) {
+            return view('mahasiswa.khs', compact('doc'));
+        }
     }
 }

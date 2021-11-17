@@ -13,4 +13,9 @@ class AdminController extends Controller
         $data = DocPendukung::all();
         return view('admin.home', compact('user','data'));
     }
+
+    public function preview($id) {
+        $data = DocPendukung::find($id);
+        return view('admin.preview', compact('data'));
+    }
 }
