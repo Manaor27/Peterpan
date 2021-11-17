@@ -27,10 +27,9 @@
     <!-- Main content -->
     <section class="content">
     @foreach($doc as $d)
-        <div class="text-center">
-            <img src="{{URL::to('/')}}/doc/{{$d->ktm}}" class="rounded" width="900"
-                    alt="File Tidak Dapat Ditampilkan Silahkan Klik Download Untuk Melihat" />
-        </div>
+      <div class="text-center">
+        <embed type="application/pdf" src="{{asset('ktm/'.$d->ktm)}}" width="700" height="600"></embed>
+      </div>
     @endforeach
     </section>
     <!-- /.content -->

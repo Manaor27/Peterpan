@@ -123,6 +123,16 @@ class MahasiswaController extends Controller
             return view('mahasiswa.ktm', compact('doc'));
         }elseif ($id==4) {
             return view('mahasiswa.khs', compact('doc'));
+        }elseif ($id==2) {
+            return view('mahasiswa.ijazah', compact('doc'));
+        }elseif ($id==3) {
+            return view('mahasiswa.transkrip', compact('doc'));
+        }elseif ($id==5) {
+            return view('mahasiswa.akte', compact('doc'));
+        }elseif ($id==6) {
+            return view('mahasiswa.kk', compact('doc'));
+        }else {
+            return view('mahasiswa.surat', compact('doc'));
         }
     }
 }

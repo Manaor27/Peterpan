@@ -27,9 +27,9 @@
     <!-- Main content -->
     <section class="content">
     @foreach($doc as $d)
-        <div class="text-center">
-            <embed type="application/pdf" src="{{URL::to('/')}}/doc/{{$d->khs}}" width="600" height="400"></embed>
-        </div>
+    <div class="text-center">
+        <embed type="application/pdf" src="{{asset('khs/'.$d->khs)}}" width="700" height="600"></embed>
+    </div>
     @endforeach
     </section>
     <!-- /.content -->
