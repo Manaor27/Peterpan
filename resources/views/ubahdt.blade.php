@@ -40,7 +40,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Jenis Perubahan</label>
-                  <select name="jenis" class="form-control" disabled>
+                  <select name="jenis" class="form-control" readonly>
                     <option value="{{ $u->jenis_perubahan }}">
                         {{ $u->jenis->jenis_perubahan }}
                     </option>
@@ -48,11 +48,11 @@
                 </div>
                 <div class="form-group">
                   <label>Data Lama</label>
-                  <input type="text" class="form-control" name="data_lama" value="{{ $u->data_lama }}" disabled>
+                  <input type="text" class="form-control" name="data_lama" value="{{ $u->data_lama }}" readonly>
                 </div>
                 <div class="form-group">
                   <label>Data Baru</label>
-                  <input type="text" class="form-control" name="data_baru" value="{{ $u->data_baru }}" disabled>
+                  <input type="text" class="form-control" name="data_baru" value="{{ $u->data_baru }}" readonly>
                 </div>
               </div>
               </div>

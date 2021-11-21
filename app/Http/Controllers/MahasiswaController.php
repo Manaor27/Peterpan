@@ -27,17 +27,29 @@ class MahasiswaController extends Controller
         Perubahan::create([
             'id_user' => $request->id_user,
             'id_jenis' => $request->jenis,
-            'data_lama' => $request->data_lama,
-            'data_baru' => $request->data_baru,
             'status' => 'on process'
         ]);
+        $pr = Perubahan::all();
+        foreach ($pr as $p) {
+            return view('ubah', compact('p'));
+        }
+    }
+
+    public function simpanData($id, Request $request) {
+        $pr = Perubahan::find($id);
+        $pr->data_lama = $request->data_lama;
+        $pr->data_baru = $request->data_baru;
+        $pr->save();
         return redirect('/upload');
     }
 
     public function uploadBerkas() {
         $ubah = Perubahan::where('id_user',Auth::user()->id)->get();
         $doc = DocPendukung::all();
-        return view('data', compact('ubah','doc'));
+        foreach ($ubah as $u) {
+            $d = DocPendukung::find($u->id);
+            return view('data', compact('u','d','doc'));
+        }
     }
 
     public function simpanBerkas(Request $request,$id) {

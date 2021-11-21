@@ -39,9 +39,10 @@
                   <div class="box">
                     <div class="box-header">
                       <div class="col-md-4">
-                      @foreach($ubah as $u)
+                        @if(isset($d->id))
+                        @else
                         <a type="button" class="btn btn-block btn-success fa fa-upload" href="{{url('/simpan/berkas/'. $u->id)}}"><b> Upload Berkas </b></a>
-                      @endforeach
+                        @endif
                       </div>
                     </div>
                     <!-- /.box-header -->
@@ -57,22 +58,35 @@
                           </tr>
                         </thead>
                         <tbody>
-                        @foreach($ubah as $u)
                           <tr>
                             <td>{{ $u->jenis->jenis_perubahan }}</td>
                             <td>{{ $u->data_lama }}</td>
                             <td>{{ $u->data_baru }}</td>
-                            <td>{{ $u->status }}</td>
+                            @if($u->status=='disetujui')
+                            <td><span class="label bg-green">{{ $u->status }}</span></td>
+                            @elseif($u->status=='on process')
+                            <td><span class="label bg-yellow">{{ $u->status }}</span></td>
+                            @else
+                            <td><span class="label bg-red">{{ $u->status }}</span></td>
+                            @endif
                             <td style="text-align: center">
+                            @if($u->status!='disetujui' and $u->status!='on process')
                               <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $u->id)}}">
                                 <i class="fa fa-edit"></i> Edit
                               </a>
                               <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $u->id)}}">
                                 <i class="fa fa-remove"></i> Delete
                               </a>
+                            @else
+                              <a class="btn btn-app bg-aqua" href="#" disabled>
+                                <i class="fa fa-edit"></i> Edit
+                              </a>
+                              <a class="btn btn-app bg-red" href="#" disabled>
+                                <i class="fa fa-remove"></i> Delete
+                              </a>
+                            @endif
                             </td>
                           </tr>
-                        @endforeach
                         </tbody>
                       </table>
                     </div>
@@ -102,9 +116,15 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/1')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
+                            @if($d->perubahan->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
+                            @else
+                            <a class="btn btn-app bg-red" href="#" disabled>
+                              <i class="fa fa-remove"></i> Delete
+                            </a>
+                            @endif
                           </td>
                         </tr>
                         @endif
@@ -116,9 +136,15 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/2')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
+                            @if($d->perubahan->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
+                            @else
+                            <a class="btn btn-app bg-red" href="#" disabled>
+                              <i class="fa fa-remove"></i> Delete
+                            </a>
+                            @endif
                           </td>
                         </tr>
                         @endif
@@ -130,9 +156,15 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/3')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
+                            @if($d->perubahan->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
+                            @else
+                            <a class="btn btn-app bg-red" href="#" disabled>
+                              <i class="fa fa-remove"></i> Delete
+                            </a>
+                            @endif
                           </td>
                         </tr>
                         @endif
@@ -144,9 +176,15 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/4')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
+                            @if($d->perubahan->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
+                            @else
+                            <a class="btn btn-app bg-red" href="#" disabled>
+                              <i class="fa fa-remove"></i> Delete
+                            </a>
+                            @endif
                           </td>
                         </tr>
                         @endif
@@ -158,9 +196,15 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/5')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
+                            @if($d->perubahan->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
+                            @else
+                            <a class="btn btn-app bg-red" href="#" disabled>
+                              <i class="fa fa-remove"></i> Delete
+                            </a>
+                            @endif
                           </td>
                         </tr>
                         @endif
@@ -172,9 +216,15 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/6')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
+                            @if($d->perubahan->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
+                            @else
+                            <a class="btn btn-app bg-red" href="#" disabled>
+                              <i class="fa fa-remove"></i> Delete
+                            </a>
+                            @endif
                           </td>
                         </tr>
                         @endif
@@ -186,9 +236,15 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/7')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
+                            @if($d->perubahan->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
+                            @else
+                            <a class="btn btn-app bg-red" href="#" disabled>
+                              <i class="fa fa-remove"></i> Delete
+                            </a>
+                            @endif
                           </td>
                         </tr>
                         @endif

@@ -54,13 +54,21 @@
                             <td>{{ $data->perubahan->jenis->jenis_perubahan }}</td>
                             <td>{{ $data->perubahan->data_lama }}</td>
                             <td>{{ $data->perubahan->data_baru }}</td>
-                            <td>{{ $data->perubahan->status }}</td>
+                            @if($data->perubahan->status=='disetujui')
+                            <td><span class="label bg-green">{{ $data->perubahan->status }}</span><br>{{ $data->perubahan->keterangan }}</td>
+                            @elseif($data->perubahan->status=='on process')
+                            <td><span class="label bg-yellow">{{ $data->perubahan->status }}</span><br>{{ $data->perubahan->keterangan }}</td>
+                            @else
+                            <td><span class="label bg-red">{{ $data->perubahan->status }}</span><br>{{ $data->perubahan->keterangan }}</td>
+                            @endif
                             <td style="text-align: center">
                               <a class="btn btn-app bg-aqua" href="{{url('/admin/validasi/'. $data->perubahan->id)}}">
-                                <i class="fa fa-edit"></i> Edit
+                                <i class="fa fa-edit"></i> Validasi
                               </a>
-                              <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $data->perubahan->id)}}">
-                                <i class="fa fa-remove"></i> Delete
+                              <!--@if($data->perubahan->status=="disetujui")
+                              <a class="btn btn-app bg-red" href="{{url('/admin/ubah/'. $data->perubahan->id)}}">
+                                <i class="fa fa-pencil"></i> Edit
+                              @endif-->
                               </a>
                             </td>
                           </tr>
@@ -89,12 +97,12 @@
                           <td style="text-align: center">{{ $no++ }}</td>
                           <td>Kartu Tanda Mahasiswa</td>
                           <td style="text-align: center">
-                            <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/1')}}">
+                            <a class="btn btn-app bg-green" href="{{url('/admin/tampil/1/'.$data->perubahan->id_user)}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
+                            <!--a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
-                            </a>
+                            </a-->
                           </td>
                         </tr>
                         @endif
@@ -103,11 +111,8 @@
                           <td style="text-align: center">{{ $no++ }}</td>
                           <td>Ijazah</td>
                           <td style="text-align: center">
-                            <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/2')}}">
+                            <a class="btn btn-app bg-green" href="{{url('/admin/tampil/2/'.$data->perubahan->id_user)}}">
                               <i class="fa fa-eye"></i> Preview
-                            </a>
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
                             </a>
                           </td>
                         </tr>
@@ -117,11 +122,8 @@
                           <td style="text-align: center">{{ $no++ }}</td>
                           <td>Transkrip Nilai</td>
                           <td style="text-align: center">
-                            <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/3')}}">
+                            <a class="btn btn-app bg-green" href="{{url('/admin/tampil/3/'.$data->perubahan->id_user)}}">
                               <i class="fa fa-eye"></i> Preview
-                            </a>
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
                             </a>
                           </td>
                         </tr>
@@ -131,11 +133,8 @@
                           <td style="text-align: center">{{ $no++ }}</td>
                           <td>Kartu Hasil Studi</td>
                           <td style="text-align: center">
-                            <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/4')}}">
+                            <a class="btn btn-app bg-green" href="{{url('/admin/tampil/4/'.$data->perubahan->id_user)}}">
                               <i class="fa fa-eye"></i> Preview
-                            </a>
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
                             </a>
                           </td>
                         </tr>
@@ -145,11 +144,8 @@
                           <td style="text-align: center">{{ $no++ }}</td>
                           <td>Akte Kelahiran</td>
                           <td style="text-align: center">
-                            <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/5')}}">
+                            <a class="btn btn-app bg-green" href="{{url('/admin/tampil/5/'.$data->perubahan->id_user)}}">
                               <i class="fa fa-eye"></i> Preview
-                            </a>
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
                             </a>
                           </td>
                         </tr>
@@ -159,11 +155,8 @@
                           <td style="text-align: center">{{ $no++ }}</td>
                           <td>Kartu Keluarga</td>
                           <td style="text-align: center">
-                            <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/6')}}">
+                            <a class="btn btn-app bg-green" href="{{url('/admin/tampil/6/'.$data->perubahan->id_user)}}">
                               <i class="fa fa-eye"></i> Preview
-                            </a>
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
                             </a>
                           </td>
                         </tr>
@@ -173,11 +166,8 @@
                           <td style="text-align: center">{{ $no++ }}</td>
                           <td>Surat Penerimaan</td>
                           <td style="text-align: center">
-                            <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/7')}}">
+                            <a class="btn btn-app bg-green" href="{{url('/admin/tampil/7/'.$data->perubahan->id_user)}}">
                               <i class="fa fa-eye"></i> Preview
-                            </a>
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
                             </a>
                           </td>
                         </tr>

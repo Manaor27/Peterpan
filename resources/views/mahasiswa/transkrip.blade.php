@@ -27,6 +27,11 @@
     <!-- Main content -->
     <section class="content">
     @foreach($doc as $d)
+    @if(Auth::user()->role=='admin')
+    <a href="/admin/preview/{{$d->id}}" type="button" class="btn btn-danger fa fa-undo"> Kembali</a>
+    @else
+    <a href="/upload" type="button" class="btn btn-danger fa fa-undo"> Kembali</a>
+    @endif
     <div class="text-center">
         <embed type="application/pdf" src="{{asset('transkrip/'.$d->transkrip)}}" width="700" height="600"></embed>
     </div>

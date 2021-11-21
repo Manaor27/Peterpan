@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Validasi</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -34,12 +34,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
-        <small>Control panel</small>
+        Validasi
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Validasi</li>
       </ol>
     </section>
     
@@ -49,34 +48,30 @@
       <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="/terkirim/update/{{ $info->id }}">
+            <form role="form" method="POST" action="/validasi/{{ $valid->id }}">
                 @csrf
                 @method('put')
-                <input type="hidden" class="form-control" name="id" value="{{ $info->id }}">
+                <input type="hidden" class="form-control" name="id" value="{{ $valid->id }}">
               <div class="box-body">
-                <!--div class="form-group">
-                  <label>Nomor Surat</label>
-                  <input type="text" class="form-control" name="no_surat" placeholder="Perihal" value="{{ $info->no_surat }}" disabled>
-                </div-->
                 <div class="form-group">
-                  <label>Kepentingan Surat</label>
-                  <input type="text" class="form-control" name="perihal" placeholder="Kepada" value="{{ $info->surat->perihal }}" disabled>
+                  <label>Nama Pemohon</label>
+                  <input type="text" class="form-control" value="{{ $valid->user->mahasiswa->nama }}" readonly>
                 </div>
                 <div class="form-group">
-                  <label>Penanda Tangan</label></br>
-                  <select name="pejabat" class="form-control select2" style="width: 100%;" required>
+                  <label>Jenis Perubahan</label></br>
+                  <input type="text" class="form-control" value="{{ $valid->jenis->jenis_perubahan }}" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Validasi</label></br>
+                  <select name="status" class="form-control select2" style="width: 100%;" required>
                         <option value="on process">on process</option>
                         <option value="disetujui">disetujui</option>
                         <option value="ditolak">ditolak</option>
                     </select>
                 </div>
                 <div class="form-group">
-                  <label>Penanda Tangan</label></br>
-                  <select name="pejabat" class="form-control select2" style="width: 100%;" required>
-                        <option value="on process">on process</option>
-                        <option value="disetujui">disetujui</option>
-                        <option value="ditolak">ditolak</option>
-                    </select>
+                  <label>Keterangan</label>
+                  <input class="form-control" type="text" name="keterangan" placeholder="Input Keterangan (Optional)">
                 </div>
               </div>
               <div class="box-footer">

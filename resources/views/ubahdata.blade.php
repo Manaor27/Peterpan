@@ -42,7 +42,7 @@
               <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
                 <div class="form-group">
                   <label>Jenis Perubahan</label>
-                  <select name="jenis" class="form-control" onchange='tampilkan()' id="jenis">
+                  <select name="jenis" class="form-control">
                     <option value="0" selected>
                       -- Pilih Jenis Perubahan --
                     </option>
@@ -53,14 +53,14 @@
                   @endforeach
                   </select>
                 </div>
-                <div class="form-group">
+                <!--div class="form-group">
                   <label>Data Lama</label>
                   <input type="text" class="form-control" name="data_lama" id="data_lama" placeholder="Input Data Lama" required>
                 </div>
                 <div class="form-group">
                   <label>Data Baru</label>
                   <input type="text" class="form-control" placeholder="Input Data Baru" name="data_baru" required>
-                </div>
+                </div-->
               </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
