@@ -39,9 +39,8 @@
                   <div class="box">
                     <div class="box-header">
                       <div class="col-md-4">
-                        @if(isset($d->id))
-                        @else
-                        <a type="button" class="btn btn-block btn-success fa fa-upload" href="{{url('/simpan/berkas/'. $u->id)}}"><b> Upload Berkas </b></a>
+                        @if($dt->status!='on process' && $dt->status!='disetujui')
+                        <a type="button" class="btn btn-block btn-success fa fa-upload" href="{{url('/simpan/berkas/'. $dt->id)}}"><b> Upload Berkas </b></a>
                         @endif
                       </div>
                     </div>
@@ -57,24 +56,25 @@
                             <th style="text-align: center">Action</th>
                           </tr>
                         </thead>
+                        @foreach($doc as $dc)
                         <tbody>
                           <tr>
-                            <td>{{ $u->jenis->jenis_perubahan }}</td>
-                            <td>{{ $u->data_lama }}</td>
-                            <td>{{ $u->data_baru }}</td>
-                            @if($u->status=='disetujui')
-                            <td><span class="label bg-green">{{ $u->status }}</span></td>
-                            @elseif($u->status=='on process')
-                            <td><span class="label bg-yellow">{{ $u->status }}</span></td>
+                            <td>{{ $dc->jenis_perubahan }}</td>
+                            <td>{{ $dc->data_lama }}</td>
+                            <td>{{ $dc->data_baru }}</td>
+                            @if($dc->status=='disetujui')
+                            <td><span class="label bg-green">{{ $dc->status }}</span></td>
+                            @elseif($dc->status=='on process')
+                            <td><span class="label bg-yellow">{{ $dc->status }}</span></td>
                             @else
-                            <td><span class="label bg-red">{{ $u->status }}</span></td>
+                            <td><span class="label bg-red">{{ $dc->status }}</span></td>
                             @endif
                             <td style="text-align: center">
-                            @if($u->status!='disetujui' and $u->status!='on process')
-                              <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $u->id)}}">
+                            @if($dc->status=='ditolak')
+                              <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $dc->id)}}">
                                 <i class="fa fa-edit"></i> Edit
                               </a>
-                              <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $u->id)}}">
+                              <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $dc->id)}}">
                                 <i class="fa fa-remove"></i> Delete
                               </a>
                             @else
@@ -87,7 +87,14 @@
                             @endif
                             </td>
                           </tr>
+                          @if($dc->keterangan!=null)
+                          <tr>
+                            <th>Keterangan</th>
+                            <td colspan="3">{{ $dc->keterangan }}</td>
+                          </tr>
+                          @endif
                         </tbody>
+                        @endforeach
                       </table>
                     </div>
                     <!-- /.box-body -->
@@ -116,7 +123,7 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/1')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->perubahan->keterangan!=null)
+                            @if($d->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
@@ -136,7 +143,7 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/2')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->perubahan->keterangan!=null)
+                            @if($d->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
@@ -156,7 +163,7 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/3')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->perubahan->keterangan!=null)
+                            @if($d->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
@@ -176,7 +183,7 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/4')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->perubahan->keterangan!=null)
+                            @if($d->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
@@ -196,7 +203,7 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/5')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->perubahan->keterangan!=null)
+                            @if($d->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
@@ -216,7 +223,7 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/6')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->perubahan->keterangan!=null)
+                            @if($d->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
@@ -236,7 +243,7 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/7')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->perubahan->keterangan!=null)
+                            @if($d->keterangan!=null)
                             <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
                               <i class="fa fa-remove"></i> Delete
                             </a>
@@ -250,6 +257,13 @@
                         @endif
                         @endforeach
                       </table>
+                      <form action="/valid/{{$dt->perid}}" method="post">
+                      @csrf
+                      @method('PUT')
+                        <div class="box-footer">
+                          <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                      </form>
                     </div>
                     <!-- /.box-body -->
                   </div>

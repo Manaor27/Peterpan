@@ -36,19 +36,19 @@
               <!-- Font Awesome Icons -->
               <div class="tab-pane active" id="update">
                 <section id="new">
-                <form role="form" method="POST" action="/simpan/data/{{$p->id}}" name="form1" id="form1">
+                <form role="form" method="POST" action="/simpan/data/{{$p->perid}}" name="form1" id="form1">
                 @csrf
                 @method('put')
               <div class="box-body">
                 <div class="form-group">
                   <label>Jenis Perubahan</label>
                   <select name="jenis" class="form-control" id="jenis">
-                    <option value="{{ $p->jenis->id }}">
-                      {{ $p->jenis->jenis_perubahan }}
+                    <option value="{{ $p->id }}">
+                      {{ $p->jenis_perubahan }}
                     </option>
                   </select>
                 </div>
-                @if($p->jenis->id==1)
+                @if($p->id==1)
                 <div class="form-group">
                   <label>Data Lama</label>
                   <input type="text" class="form-control" name="data_lama" value="{{ Auth::user()->mahasiswa->nim }}" readonly>
@@ -57,7 +57,7 @@
                   <label>Data Baru</label>
                   <input type="text" class="form-control" placeholder="Input Data Baru" name="data_baru" required>
                 </div>
-                @elseif($p->jenis->id==2)
+                @elseif($p->id==2)
                 <div class="form-group">
                   <label>Data Lama</label>
                   <input type="text" class="form-control" name="data_lama" value="{{ Auth::user()->mahasiswa->nama }}" readonly>
@@ -66,7 +66,7 @@
                   <label>Data Baru</label>
                   <input type="text" class="form-control" placeholder="Input Data Baru" name="data_baru" required>
                 </div>
-                @elseif($p->jenis->id==3)
+                @elseif($p->id==3)
                 <div class="form-group">
                   <label>Data Lama</label>
                   <input type="text" class="form-control" name="data_lama" value="{{ Auth::user()->mahasiswa->nama_ibu }}" readonly>
@@ -75,7 +75,7 @@
                   <label>Data Baru</label>
                   <input type="text" class="form-control" placeholder="Input Data Baru" name="data_baru" required>
                 </div>
-                @elseif($p->jenis->id==4)
+                @elseif($p->id==4)
                 <div class="form-group">
                   <label>Data Lama</label>
                   <input type="text" class="form-control" name="data_lama" value="{{ Auth::user()->mahasiswa->tempat_lahir }}" readonly>
@@ -84,7 +84,7 @@
                   <label>Data Baru</label>
                   <input type="text" class="form-control" placeholder="Input Data Baru" name="data_baru" required>
                 </div>
-                @elseif($p->jenis->id==5)
+                @elseif($p->id==5)
                 <div class="form-group">
                   <label>Data Lama</label>
                   <input type="text" class="form-control" name="data_lama" value="{{ Auth::user()->mahasiswa->tgl_lahir }}" readonly>
@@ -93,7 +93,7 @@
                   <label>Data Baru</label>
                   <input type="date" class="form-control" placeholder="Input Data Baru" name="data_baru" required>
                 </div>
-                @elseif($p->jenis->id==6)
+                @elseif($p->id==6)
                 <div class="form-group">
                   <label>Data Lama</label>
                   <input type="text" class="form-control" name="data_lama" value="{{ Auth::user()->mahasiswa->periode_daftar }}" readonly>
@@ -118,7 +118,7 @@
                 @endif
               </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
               </div>
             </form>
                 </section>

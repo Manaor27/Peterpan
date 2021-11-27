@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Auth;
 use DB;
 use App\Models\Mahasiswa;
@@ -27,9 +28,10 @@ class MahasiswaController extends Controller
         Perubahan::create([
             'id_user' => $request->id_user,
             'id_jenis' => $request->jenis,
-            'status' => 'on process'
+            'status' => null,
+            'keterangan' => null
         ]);
-        $pr = Perubahan::all();
+        $pr = DB::table('perubahan')->join('jenis','id_jenis','=','jenis.id')->select(DB::raw('perubahan.id_jenis as id, jenis.jenis_perubahan as jenis_perubahan, perubahan.id as perid'))->orderBy('id','asc')->limit('1')->get();
         foreach ($pr as $p) {
             return view('ubah', compact('p'));
         }
@@ -40,33 +42,38 @@ class MahasiswaController extends Controller
         $pr->data_lama = $request->data_lama;
         $pr->data_baru = $request->data_baru;
         $pr->save();
+        DocPendukung::create([
+            'id_perubahan' => $id
+        ]);
         return redirect('/upload');
     }
 
     public function uploadBerkas() {
-        $ubah = Perubahan::where('id_user',Auth::user()->id)->get();
-        $doc = DocPendukung::all();
-        foreach ($ubah as $u) {
-            $d = DocPendukung::find($u->id);
-            return view('data', compact('u','d','doc'));
+        $doc = DB::table('doc_pendukung')->join('perubahan','id_perubahan','=','perubahan.id')->join('jenis','id_jenis','=','jenis.id')->select(DB::raw('jenis.jenis_perubahan as jenis_perubahan, perubahan.data_lama as data_lama, perubahan.data_baru as data_baru, perubahan.status as status, perubahan.keterangan as keterangan, doc_pendukung.ktm as ktm, doc_pendukung.khs as khs, doc_pendukung.ijazah as ijazah, doc_pendukung.transkrip as transkrip, doc_pendukung.akte as akte, doc_pendukung.kk as kk, doc_pendukung.surat as surat, perubahan.id as perubahanid, doc_pendukung.id as id'))->where('perubahan.id_user',Auth::user()->id)->where('perubahan.status',null)->orWhere('perubahan.status','on process')->orWhere('perubahan.status','ditolak')->get();
+        $data = DB::table('doc_pendukung')->join('perubahan','id_perubahan','=','perubahan.id')->select(DB::raw('perubahan.status as status, doc_pendukung.id as id, perubahan.id as perid'))->orderBy('id','desc')->limit('1')->get();
+        foreach ($data as $dt) {
+            return view('data', compact('doc','dt'));
         }
     }
 
+    public function valid($id) {
+        $vd = Perubahan::find($id);
+        $vd->status = 'on process';
+        $vd->save();
+        return redirect('/upload');
+    }
+
+    public function arsip() {
+        $doc = DocPendukung::all();
+        return view('datas', compact('doc'));
+    }
+
     public function simpanBerkas(Request $request,$id) {
-        $u = Perubahan::find($id);
+        $u = DocPendukung::find($id);
         return view('ubahdt', compact('u'));
     }
 
-    public function save(Request $request) {
-        /*$request->validate([
-            'ktm' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
-            'ijazah' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
-            'transkrip' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
-            'khs' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
-            'akte' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
-            'kk' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
-            'surat' => 'required|mimes:jpg,jpeg,png,doc,docx,pdf',
-        ]);*/
+    public function save(Request $request, $id) {
         $ktm = $request->file('ktm');
         if ($ktm==null) {
             $ktmName = null;
@@ -116,17 +123,104 @@ class MahasiswaController extends Controller
             $suratName = 'surat_'. Auth::user()->mahasiswa->nim. $surat->getClientOriginalName();
             $surat->move('surat/', $suratName);
         }
-        DocPendukung::create([
-            'ktm' => $ktmName,
-            'ijazah' => $ijazahName,
-            'transkrip' => $transkripName,
-            'khs' => $khsName,
-            'akte' => $akteName,
-            'kk' => $kkName,
-            'surat' => $suratName,
-            'id_perubahan' => $request->id
-        ]);
-        return redirect('/home');
+        $doc = DocPendukung::find($id);
+        $doc->ktm = $ktmName;
+        $doc->ijazah = $ijazahName;
+        $doc->transkrip = $transkripName;
+        $doc->khs = $khsName;
+        $doc->akte = $akteName;
+        $doc->kk = $kkName;
+        $doc->surat = $suratName;
+        $doc->save();
+        return redirect('/upload');
+    }
+
+    public function edit($id) {
+        $u = DocPendukung::find($id);
+        return view('ubahfile', compact('u'));
+    }
+
+    public function update(Request $request, $id) {
+        $ktm = $request->file('ktm');
+        $oldktm = $request->file('oldktm');
+        if ($ktm==null) {
+            $ktmName = $oldktm->getClientOriginalName();
+            $oldktm->move('ktm/', $ktmName);
+        }else {
+            $ktmName = 'ktm_'.Auth::user()->mahasiswa->nim. $ktm->getClientOriginalName();
+            File::delete($oldktm);
+            $ktm->move('ktm/', $ktmName);
+        }
+        $ijazah = $request->file('ijazah');
+        $oldijazah = $request->file('oldijazah');
+        if ($ijazah==null) {
+            $ijazahName = $oldijazah->getClientOriginalName();
+            $oldijazah->move('ijazah/', $ijazahName);
+        }else {
+            $ijazahName = 'ijazah_'. Auth::user()->mahasiswa->nim. $ijazah->getClientOriginalName();
+            File::delete($oldijazah);
+            $ijazah->move('ijazah/', $ijazahName);
+        }
+        $transkrip = $request->file('transkrip');
+        $oldtranskrip = $request->file('oldtranskrip');
+        if ($transkrip==null) {
+            $transkripName = $oldtranskrip->getClientOriginalName();
+            $oldtranskrip->move('transkrip/', $transkripName);
+        }else {
+            $transkripName = 'transkrip_'. Auth::user()->mahasiswa->nim. $transkrip->getClientOriginalName();
+            File::delete($oldtranskrip);
+            $transkrip->move('transkrip/', $transkripName);
+        }
+        $khs = $request->file('khs');
+        $oldkhs = $request->file('oldkhs');
+        if ($khs==null) {
+            $khsName = $oldkhs->getClientOriginalName();
+            $oldkhs->move('khs/', $khsName);
+        }else {
+            $khsName = 'khs_'. Auth::user()->mahasiswa->nim. $khs->getClientOriginalName();
+            File::delete($oldkhs);
+            $khs->move('khs/', $khsName);
+        }
+        $akte = $request->file('akte');
+        $oldakte = $request->file('oldakte');
+        if ($akte==null) {
+            $akteName = $oldakte->getClientOriginalName();
+            $oldakte->move('akte/', $akteName);
+        }else {
+            $akteName = 'akte_'. Auth::user()->mahasiswa->nim. $akte->getClientOriginalName();
+            File::delete($oldakte);
+            $akte->move('akte/', $akteName);
+        }
+        $kk = $request->file('kk');
+        $oldkk = $request->file('kk');
+        if ($kk==null) {
+            $kkName = $oldkk->getClientOriginalName();
+            $oldkk->move('kk/', $kkName);
+        }else {
+            $kkName = 'kk_'. Auth::user()->mahasiswa->nim. $kk->getClientOriginalName();
+            File::delete($oldkk);
+            $kk->move('kk/', $kkName);
+        }
+        $surat = $request->file('surat');
+        $oldsurat = $request->file('oldsurat');
+        if ($surat==null) {
+            $suratName = $oldsurat->getClientOriginalName();
+            $oldsurat->move('surat/', $suratName);
+        }else {
+            $suratName = 'surat_'. Auth::user()->mahasiswa->nim. $surat->getClientOriginalName();
+            File::delete($oldsurat);
+            $surat->move('surat/', $suratName);
+        }
+        $doc = DocPendukung::find($id);
+        $doc->ktm = $ktmName;
+        $doc->ijazah = $ijazahName;
+        $doc->transkrip = $transkripName;
+        $doc->khs = $khsName;
+        $doc->akte = $akteName;
+        $doc->kk = $kkName;
+        $doc->surat = $suratName;
+        $doc->save();
+        return redirect('/upload');
     }
 
     public function tampil($id) {

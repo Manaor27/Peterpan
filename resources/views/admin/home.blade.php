@@ -84,9 +84,9 @@
                     <a href="{{url('/admin/preview/'. $item->id)}}" class="btn btn-app bg-green">
                       <i class="fa fa-eye"></i> Preview
                     </a>
-                    <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
+                    <!--a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
                       <i class="fa fa-edit"></i> Edit
-                    </a>
+                    </a-->
                     <!--a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->id)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a-->

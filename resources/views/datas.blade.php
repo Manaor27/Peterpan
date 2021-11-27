@@ -36,36 +36,33 @@
               <!-- Font Awesome Icons -->
               <div class="tab-pane active" id="update">
                 <section id="new">
-                <form role="form" method="POST" action="/simpan/perubahan" name="form1" id="form1">
-                @csrf
-              <div class="box-body">
-              <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
-                <div class="form-group">
-                  <label>Jenis Perubahan</label>
-                  <select name="jenis" class="form-control">
-                    <option value="0" selected>
-                      -- Pilih Jenis Perubahan --
-                    </option>
-                  @foreach($jns as $j)
-                    <option value="{{ $j->id }}">
-                        {{ $j->jenis_perubahan }}
-                    </option>
-                  @endforeach
-                  </select>
-                </div>
-                <!--div class="form-group">
-                  <label>Data Lama</label>
-                  <input type="text" class="form-control" name="data_lama" id="data_lama" placeholder="Input Data Lama" required>
-                </div>
-                <div class="form-group">
-                  <label>Data Baru</label>
-                  <input type="text" class="form-control" placeholder="Input Data Baru" name="data_baru" required>
-                </div-->
-              </div>
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-              </div>
-            </form>
+                  <div class="box">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      <table class="table border" >
+                        <thead>
+                          <tr>
+                            <th>Jenis Perubahan</th>
+                            <th>Data Lama</th>
+                            <th>Data Baru</th>
+                          </tr>
+                        </thead>
+                        @foreach($doc as $dc)
+                        <tbody>
+                          <tr>
+                            <td>{{ $dc->perubahan->jenis->jenis_perubahan }}</td>
+                            <td>{{ $dc->perubahan->data_lama }}</td>
+                            <td>{{ $dc->perubahan->data_baru }}</td>
+                          </tr>
+                        </tbody>
+                        @endforeach
+                      </table>
+                    </div>
+                    <!-- /.box-body -->
+                  </div>
+                    </div>
+                    <!-- /.box-body -->
+                  </div>
                 </section>
               </div>
               <!-- /#ion-icons -->

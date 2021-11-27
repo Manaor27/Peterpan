@@ -65,7 +65,7 @@
                 <div class="box-header with-border">
                   <h3 class="box-title">Horizontal Form</h3>
                 </div>
-                <form role="form" action="/save/{{$u->id}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                <form role="form" action="/update/{{$u->id}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                   <div class="box-body">
@@ -73,7 +73,8 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Kartu Tanda Mahasiswa</label>
                       <div class="col-sm-9">
-                        <input type="file" name="ktm" required>
+                        <input type="file" name="ktm">
+                        <input type="hidden" name="oldktm" value="{{$u->ktm}}">
                         <p class="help-block">Pastikan file anda ( jpg,jpeg,png,doc,docx,pdf ) !!!</p>
                       </div>
                     </div>
@@ -81,14 +82,16 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Ijazah</label>
                       <div class="col-sm-9">
-                        <input type="file" name="ijazah" required>
+                        <input type="file" name="ijazah">
+                        <input type="hidden" name="oldijazah" value="{{$u->ijazah}}">
                         <p class="help-block">Pastikan file anda ( jpg,jpeg,png,doc,docx,pdf ) !!!</p>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Transkrip Nilai</label>
                       <div class="col-sm-9">
-                        <input type="file" name="transkrip" required>
+                        <input type="file" name="transkrip">
+                        <input type="hidden" name="oldtranskrip" value="{{$u->transkrip}}">
                         <p class="help-block">Pastikan file anda ( jpg,jpeg,png,doc,docx,pdf ) !!!</p>
                       </div>
                     </div>
@@ -97,7 +100,8 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Kartu Hasil Studi</label>
                       <div class="col-sm-9">
-                        <input type="file" name="khs" required>
+                        <input type="file" name="khs">
+                        <input type="hidden" name="oldkhs" value="{{$u->khs}}">
                         <p class="help-block">Pastikan file anda ( jpg,jpeg,png,doc,docx,pdf ) !!!</p>
                       </div>
                     </div>
@@ -105,14 +109,16 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Akte Kelahiran</label>
                       <div class="col-sm-9">
-                        <input type="file" name="akte" required>
+                        <input type="file" name="akte">
+                        <input type="hidden" name="oldakte" value="{{$u->akte}}">
                         <p class="help-block">Pastikan file anda ( jpg,jpeg,png,doc,docx,pdf ) !!!</p>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Kartu Keluarga</label>
                       <div class="col-sm-9">
-                        <input type="file" name="kk" required>
+                        <input type="file" name="kk">
+                        <input type="hidden" name="oldkk" value="{{$u->kk}}">
                         <p class="help-block">Pastikan file anda ( jpg,jpeg,png,doc,docx,pdf ) !!!</p>
                       </div>
                     </div>
@@ -121,7 +127,8 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Surat Penerimaan</label>
                       <div class="col-sm-9">
-                        <input type="file" name="surat" required>
+                        <input type="file" name="surat">
+                        <input type="hidden" name="oldsurat" value="{{$u->surat}}">
                         <p class="help-block">Pastikan file anda ( jpg,jpeg,png,doc,docx,pdf ) !!!</p>
                       </div>
                     </div>

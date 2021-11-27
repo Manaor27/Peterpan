@@ -55,16 +55,18 @@
                             <td>{{ $data->perubahan->data_lama }}</td>
                             <td>{{ $data->perubahan->data_baru }}</td>
                             @if($data->perubahan->status=='disetujui')
-                            <td><span class="label bg-green">{{ $data->perubahan->status }}</span><br>{{ $data->perubahan->keterangan }}</td>
+                            <td><span class="label bg-green">{{ $data->perubahan->status }}</span></td>
                             @elseif($data->perubahan->status=='on process')
-                            <td><span class="label bg-yellow">{{ $data->perubahan->status }}</span><br>{{ $data->perubahan->keterangan }}</td>
+                            <td><span class="label bg-yellow">{{ $data->perubahan->status }}</span></td>
                             @else
-                            <td><span class="label bg-red">{{ $data->perubahan->status }}</span><br>{{ $data->perubahan->keterangan }}</td>
+                            <td><span class="label bg-red">{{ $data->perubahan->status }}</span></td>
                             @endif
                             <td style="text-align: center">
+                            @if($data->perubahan->status!=null && $data->perubahan->status!='disetujui')
                               <a class="btn btn-app bg-aqua" href="{{url('/admin/validasi/'. $data->perubahan->id)}}">
                                 <i class="fa fa-edit"></i> Validasi
                               </a>
+                            @endif
                               <!--@if($data->perubahan->status=="disetujui")
                               <a class="btn btn-app bg-red" href="{{url('/admin/ubah/'. $data->perubahan->id)}}">
                                 <i class="fa fa-pencil"></i> Edit
@@ -72,6 +74,12 @@
                               </a>
                             </td>
                           </tr>
+                          @if($data->perubahan->keterangan!=null)
+                          <tr>
+                            <th>Keterangan</th>
+                            <td colspan="3" class="text-danger">{{ $data->perubahan->keterangan }}</td>
+                          </tr>
+                          @endif
                         </tbody>
                       </table>
                     </div>
