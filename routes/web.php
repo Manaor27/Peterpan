@@ -9,18 +9,21 @@ use App\Http\Controllers\JenisController;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/test', function () {
+    return view('test1');
+});
 
 Route::get('/ubahdata', [MahasiswaController::class, 'ubahData']);
 Route::post('/simpan/perubahan', [MahasiswaController::class, 'simpanPerubahan']);
-Route::put('/simpan/data/{id}', [MahasiswaController::class, 'simpanData']);
 Route::get('/upload', [MahasiswaController::class, 'uploadBerkas']);
 Route::get('/simpan/berkas/{id}', [MahasiswaController::class, 'simpanBerkas']);
-Route::put('/save/{id}', [MahasiswaController::class, 'save']);
 Route::get('/mahasiswa/tampil/{id}', [MahasiswaController::class, 'tampil']);
 Route::put('/valid/{id}', [MahasiswaController::class, 'valid']);
 Route::get('/perubahan', [MahasiswaController::class, 'arsip']);
-Route::get('/mahasiswa/edit/{id}', [MahasiswaController::class, 'edit']);
-Route::put('/update/{id}', [MahasiswaController::class, 'update']);
+
+Route::put('/save/{id}', [DocController::class, 'save']);
+Route::get('/mahasiswa/edit/{id}', [DocController::class, 'edit']);
+Route::put('/update/{id}', [DocController::class, 'update']);
 
 Route::get('/admin/preview/{id}', [AdminController::class, 'preview']);
 Route::put('/validasi/{id}', [AdminController::class, 'simpanValidasi']);

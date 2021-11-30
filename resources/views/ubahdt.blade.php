@@ -69,7 +69,7 @@
                 @csrf
                 @method('PUT')
                   <div class="box-body">
-                  @if($u->perubahan->id_jenis!=6 && $u->perubahan->id_jenis!=7)
+                  @if($u->perubahan->id_jenis!=6 && $u->perubahan->id_jenis!=7 && $u->perubahan->id_jenis!=3)
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Kartu Tanda Mahasiswa</label>
                       <div class="col-sm-9">
@@ -94,6 +94,7 @@
                     </div>
                     @endif
                   @endif
+                  @if($u->perubahan->id_jenis==1)
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Kartu Hasil Studi</label>
                       <div class="col-sm-9">
@@ -101,6 +102,7 @@
                         <p class="help-block">Pastikan file anda ( jpg,jpeg,png,doc,docx,pdf ) !!!</p>
                       </div>
                     </div>
+                  @endif
                   @if($u->perubahan->id_jenis!=1 && $u->perubahan->id_jenis!=6 && $u->id_jenis!=7)
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Akte Kelahiran</label>
