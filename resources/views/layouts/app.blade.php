@@ -91,44 +91,6 @@
   
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('#jenis').on('change', function () {
-        var optionSelected = $("option:selected", this);
-        var valueSelected = this.value;
-        if(valueSelected == 1){
-          $('.project').remove();
-          $("#data_lama").append('<input type="text" class="form-control project" name="data_lama" id="nim" placeholder="Input Data Lama" value="{{ Auth::user()->mahasiswa->nim }}" readonly>');
-          $("#data_baru").append('<input type="text" class="form-control project" placeholder="Input Data Baru" name="data_baru" required>');
-        }if(valueSelected == 2){
-          $('.project').remove();
-          $("#data_lama").append('<input type="text" class="form-control project" name="data_lama" id="nim" placeholder="Input Data Lama" value="{{ Auth::user()->mahasiswa->nama }}" readonly>');
-          $("#data_baru").append('<input type="text" class="form-control project" placeholder="Input Data Baru" name="data_baru" required>');
-        }if (valueSelected == 3) {
-          $('.project').remove();
-          $("#data_lama").append('<input type="text" class="form-control project" name="data_lama" id="nim" placeholder="Input Data Lama" value="{{ Auth::user()->mahasiswa->nama_ibu }}" readonly>');
-          $("#data_baru").append('<input type="text" class="form-control project" placeholder="Input Data Baru" name="data_baru" required>');
-        }if (valueSelected == 4) {
-          $('.project').remove();
-          $("#data_lama").append('<input type="text" class="form-control project" name="data_lama" id="nim" placeholder="Input Data Lama" value="{{ Auth::user()->mahasiswa->tempat_lahir }}" readonly>');
-          $("#data_baru").append('<input type="text" class="form-control project" placeholder="Input Data Baru" name="data_baru" required>');
-        }if (valueSelected == 5) {
-          $('.project').remove();
-          $("#data_lama").append('<input type="text" class="form-control project" name="data_lama" id="nim" placeholder="Input Data Lama" value="{{ Auth::user()->mahasiswa->tgl_lahir }}" readonly>');
-          $("#data_baru").append('<input type="date" class="form-control project" placeholder="Input Data Baru" name="data_baru" required>');
-        }if (valueSelected == 6) {
-          $('.project').remove();
-          $("#data_lama").append('<input type="text" class="form-control project" name="data_lama" id="nim" placeholder="Input Data Lama" value="{{ Auth::user()->mahasiswa->periode_daftar }}" readonly>');
-          $("#data_baru").append('<input type="text" class="form-control project" placeholder="Input Data Baru" name="data_baru" required>');
-        }if (valueSelected == 7) {
-          $('.project').remove();
-          $("#data_lama").append('<input type="text" class="form-control project" name="data_lama" id="nim" placeholder="Input Data Lama" value="{{ Auth::user()->mahasiswa->jenis_kelamin }}" readonly>');
-          $("#data_baru").append('<select name="data_baru" class="form-control project" id="baru3" required><option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option></select>');
-        }
-      });
-    });
-  </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

@@ -48,6 +48,7 @@
                           </tr>
                         </thead>
                         @foreach($doc as $dc)
+                        @if($dc->perubahan->user->id==Auth::user()->id)
                         <tbody>
                           <tr>
                             <td>{{ $dc->perubahan->jenis->jenis_perubahan }}</td>
@@ -55,6 +56,7 @@
                             <td>{{ $dc->perubahan->data_baru }}</td>
                           </tr>
                         </tbody>
+                        @endif
                         @endforeach
                       </table>
                     </div>

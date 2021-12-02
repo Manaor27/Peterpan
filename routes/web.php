@@ -5,6 +5,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisController;
+use App\Http\Controllers\DocController;
 
 Route::get('/', function () {
     return view('auth.login');
