@@ -50,183 +50,21 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2021-11-29 11:47:03        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2021-12-03 02:44:20        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
 
-    <div class="row">
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Violations</div>
-                <div class="number">4</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Information</div>
-                <div class="number">1</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Warnings</div>
-                <div class="number">2</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Errors</div>
-                <div class="number">1</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Criticals</div>
-                <div class="number">0</div>
-            </div>
+
+<div class="row">
+    <div class="column">
+        <div class="bloc">
+            <h4>Package relations</h4>
+            <div id="chart-relations"></div>
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="column">
-            <div class="bloc">
-                <h4>Class Violations</h4>
-                <table class="table-pagerank table-small">
-                    <thead>
-                    <tr>
-                        <th>Class</th>
-                        <th>Violations</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    
-                            <tr>
-                                <td>
-                                    <a onclick="return toggle('bloc-61a4afa77e6873.23116614');">
-                                        <span class="path">App\Http\Controllers\MahasiswaController</span>
-                                    </a>
-                                    <div class="violation-list" id="bloc-61a4afa77e6873.23116614">
-                                                                                    <div class="violation">
-                                                <div class="name">
-                                                    Blob / God object                                                    <span
-                                                        class="badge level level-error">error</span>
-
-                                                </div>
-                                                <div
-                                                    class="description">A blob object (or "god class") does not follow the Single responsibility principle.<br />
-<br />
-* object has lot of public methods  (12, excluding getters and setters)<br />
-* object has a high Lack of cohesion of methods (LCOM=12)<br />
-* object knows everything (and use lot of external classes)<br />
-<br />
-Maybe you should reducing the number of methods splitting this object in many sub objects.</div>
-
-                                            </div>
-                                                                                    <div class="violation">
-                                                <div class="name">
-                                                    Probably bugged                                                    <span
-                                                        class="badge level level-warning">warning</span>
-
-                                                </div>
-                                                <div
-                                                    class="description">This component contains in theory 1.17 bugs.<br />
-<br />
-* Calculation is based on number of operators, operands, cyclomatic complexity<br />
-* See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures<br />
-*  testsuites has dependency to this class.<br />
-<br />
-Maybe you should check your unit tests for this class.</div>
-
-                                            </div>
-                                                                                    <div class="violation">
-                                                <div class="name">
-                                                    Too long                                                    <span
-                                                        class="badge level level-information">information</span>
-
-                                                </div>
-                                                <div
-                                                    class="description">This class looks really long.<br />
-<br />
-* Class has 226 logical lines of code<br />
-* Class has 226 lines of code<br />
-<br />
-Maybe your class should not exceed 200 lines of logical code</div>
-
-                                            </div>
-                                                                            </div>
-                                </td>
-
-                                <td valign="top">
-                                                                            <span
-                                            class="badge level level-error"> Blob / God object</span>
-                                                                            <span
-                                            class="badge level level-warning"> Probably bugged</span>
-                                                                            <span
-                                            class="badge level level-information"> Too long</span>
-                                                                    </td>
-                            </tr>
-                                            </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="column">
-            <div class="bloc">
-                <h4>Package Violations</h4>
-                <table class="table-pagerank table-small">
-                    <thead>
-                    <tr>
-                        <th>Package</th>
-                        <th>Violations</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    
-                            <tr>
-                                <td>
-                                    <a onclick="return toggle('bloc-61a4afa77e6e9');">
-                                        <span class="path">App\Models</span>
-                                    </a>
-                                    <div class="violation-list" id="bloc-61a4afa77e6e9">
-                                                                                    <div class="violation">
-                                                <div class="name">
-                                                    Stable Abstractions Principle                                                    <span
-                                                            class="badge level level-warning">warning</span>
-
-                                                </div>
-                                                <div
-                                                        class="description">Packages should be either abstract and stable or concrete and instable.<br />
-<br />
-This package is instable and abstract.</div>
-
-                                            </div>
-                                                                            </div>
-                                </td>
-
-                                <td valign="top">
-                                                                            <span
-                                                class="badge level level-warning"> Stable Abstractions Principle</span>
-                                                                    </td>
-                            </tr>
-                                            </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-        function toggle(id) {
-            var div = document.getElementById(id);
-            if (div.style.display === 'block') {
-                div.style.display = 'none';
-            }
-            else {
-                div.style.display = 'block';
-            }
-        }
-    </script>
 </div>
 
 <!-- Sidebar -->
@@ -256,7 +94,7 @@ This package is instable and abstract.</div>
                             <path d="M0 0h24v24H0z" fill="none"/>
                             <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
                         </svg>
-                        Violations (4)
+                        Violations (3)
                     </a>
                 </li>
                                     <li>
@@ -404,3 +242,380 @@ This package is instable and abstract.</div>
 
 </body>
 </html>
+
+
+<script type="text/javascript">
+
+
+    var relations = [
+    {
+        "name": "App\\Console",
+        "size": 3000,
+        "relations": [
+            "Illuminate\\Foundation\\Console",
+            "Illuminate\\Console\\Scheduling"
+        ]
+    },
+    {
+        "name": "Illuminate\\Foundation\\Console",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Console\\Scheduling",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "App\\Exceptions",
+        "size": 3000,
+        "relations": [
+            "Illuminate\\Foundation\\Exceptions"
+        ]
+    },
+    {
+        "name": "Illuminate\\Foundation\\Exceptions",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "App\\Http\\Controllers",
+        "size": 3000,
+        "relations": [
+            "global",
+            "App\\Models",
+            "Illuminate\\Http",
+            "Illuminate\\Routing",
+            "Illuminate\\Support\\Facades",
+            "Carbon"
+        ]
+    },
+    {
+        "name": "global",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "App\\Models",
+        "size": 3000,
+        "relations": [
+            "Illuminate\\Database\\Eloquent",
+            "Illuminate\\Foundation\\Auth"
+        ]
+    },
+    {
+        "name": "Illuminate\\Http",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Routing",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Support\\Facades",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Carbon",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "App\\Http\\Controllers\\Auth",
+        "size": 3000,
+        "relations": [
+            "App\\Http\\Controllers",
+            "Illuminate\\Support\\Facades",
+            "App\\Models"
+        ]
+    },
+    {
+        "name": "App\\Http",
+        "size": 3000,
+        "relations": [
+            "Illuminate\\Foundation\\Http"
+        ]
+    },
+    {
+        "name": "Illuminate\\Foundation\\Http",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "App\\Http\\Middleware",
+        "size": 3000,
+        "relations": [
+            "Illuminate\\Http",
+            "global",
+            "Illuminate\\Auth\\Middleware",
+            "Illuminate\\Cookie\\Middleware",
+            "Illuminate\\Foundation\\Http\\Middleware",
+            "Illuminate\\Support\\Facades",
+            "Illuminate\\Http\\Middleware"
+        ]
+    },
+    {
+        "name": "Illuminate\\Auth\\Middleware",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Cookie\\Middleware",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Foundation\\Http\\Middleware",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Http\\Middleware",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Database\\Eloquent",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Foundation\\Auth",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "App\\Providers",
+        "size": 3000,
+        "relations": [
+            "Illuminate\\Support",
+            "Illuminate\\Foundation\\Support\\Providers",
+            "Illuminate\\Support\\Facades",
+            "Illuminate\\Cache\\RateLimiting"
+        ]
+    },
+    {
+        "name": "Illuminate\\Support",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Foundation\\Support\\Providers",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Cache\\RateLimiting",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Database\\Factories",
+        "size": 3000,
+        "relations": [
+            "Illuminate\\Database\\Eloquent\\Factories",
+            "Illuminate\\Support",
+            "Illuminate\\Database\\Migrations",
+            "Illuminate\\Support\\Facades"
+        ]
+    },
+    {
+        "name": "Illuminate\\Database\\Eloquent\\Factories",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Illuminate\\Database\\Migrations",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Database\\Seeders",
+        "size": 3000,
+        "relations": [
+            "Illuminate\\Database",
+            "global",
+            "Carbon"
+        ]
+    },
+    {
+        "name": "Illuminate\\Database",
+        "size": 3000,
+        "relations": []
+    }
+];
+
+    /**
+     * Thanks to http://bl.ocks.org/mbostock/raw/7607999/
+     */
+    function updateRelationsChart() {
+
+
+        var diameter = document.getElementById('chart-relations').offsetWidth,
+            radius = diameter / 2,
+            innerRadius = radius - 320;
+
+        var cluster = d3.layout.cluster()
+            .size([360, innerRadius])
+            .sort(null)
+            .value(function (d) {
+                return d.size;
+            });
+
+        var bundle = d3.layout.bundle();
+
+        var line = d3.svg.line.radial()
+            .interpolate("bundle")
+            .tension(.85)
+            .radius(function (d) {
+                return d.y;
+            })
+            .angle(function (d) {
+                return d.x / 180 * Math.PI;
+            });
+
+        var svg = d3.select("#chart-relations").append("svg")
+            .attr("width", diameter)
+            .attr("height", diameter)
+            .append("g")
+            .attr("transform", "translate(" + radius + "," + radius + ")");
+
+        var link = svg.append("g").selectAll(".link"),
+            node = svg.append("g").selectAll(".node");
+
+
+        var nodes = cluster.nodes(packageHierarchy(relations)),
+            links = packageImports(nodes);
+        link = link
+            .data(bundle(links))
+            .enter().append("path")
+            .each(function (d) {
+                d.source = d[0], d.target = d[d.length - 1];
+            })
+            .attr("class", "link")
+            .attr("d", line);
+
+        node = node
+            .data(nodes.filter(function (n) {
+                return !n.children;
+            }))
+            .enter().append("text")
+            .attr("class", "node")
+            .attr("dy", ".31em")
+            .attr("transform", function (d) {
+                return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)");
+            })
+            .style("text-anchor", function (d) {
+                return d.x < 180 ? "start" : "end";
+            })
+            .text(function (d) {
+                return d.key;
+            })
+            .on("mouseover", mouseovered)
+            .on("mouseout", mouseouted);
+
+
+//        d3.data(relations);
+
+        function mouseovered(d) {
+            node
+                .each(function (n) {
+                    n.target = n.source = false;
+                });
+
+            link
+                .classed("link--target", function (l) {
+                    if (l.target === d) return l.source.source = true;
+                })
+                .classed("link--source", function (l) {
+                    if (l.source === d) return l.target.target = true;
+                })
+                .filter(function (l) {
+                    return l.target === d || l.source === d;
+                })
+                .each(function () {
+                    this.parentNode.appendChild(this);
+                });
+
+            node
+                .classed("node--target", function (n) {
+                    return n.target;
+                })
+                .classed("node--source", function (n) {
+                    return n.source;
+                });
+        }
+
+        function mouseouted(d) {
+            link
+                .classed("link--target", false)
+                .classed("link--source", false);
+
+            node
+                .classed("node--target", false)
+                .classed("node--source", false);
+        }
+
+        d3.select(self.frameElement).style("height", diameter + "px");
+
+        // Lazily construct the package hierarchy from class names.
+        function packageHierarchy(classes) {
+            var map = {};
+
+            function find(name, data) {
+                name = (data ? name + ' ' : name);
+                var node = map[name];
+                if (!node) {
+                    node = map[name] = data || {name: name, children: []};
+                    if (name.length) {
+                        node.parent = find("");
+                        if (!node.parent.children) {
+                            node.parent.children = []; // fix anomalies
+                        }
+                        node.parent.children.push(node);
+                        node.key = name.trim();
+                    }
+                }
+                return node;
+            }
+
+            classes.forEach(function (d) {
+                find(d.name, d);
+            });
+
+            return map[""];
+        }
+
+        // Return a list of imports for the given array of nodes.
+        function packageImports(nodes) {
+            var map = {},
+                imports = [];
+
+            // Compute a map from name to node.
+            nodes.forEach(function (d) {
+                map[d.name] = d;
+            });
+
+            // For each import, construct a link from the source to target node.
+            nodes.forEach(function (d) {
+                if (d.relations) d.relations.forEach(function (i) {
+                    imports.push({source: map[d.name], target: map[i]});
+                });
+            });
+
+            return imports;
+        }
+
+
+    }
+
+    document.onreadystatechange = function () {
+        if (document.readyState === 'complete') {
+            updateRelationsChart();
+        }
+    };
+
+</script>

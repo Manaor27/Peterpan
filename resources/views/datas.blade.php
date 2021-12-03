@@ -48,7 +48,7 @@
                           </tr>
                         </thead>
                         @foreach($doc as $dc)
-                        @if($dc->perubahan->user->id==Auth::user()->id)
+                        @if($dc->perubahan->user->id==Auth::user()->id && $dc->perubahan->status=='disetujui')
                         <tbody>
                           <tr>
                             <td>{{ $dc->perubahan->jenis->jenis_perubahan }}</td>

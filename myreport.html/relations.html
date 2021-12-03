@@ -50,7 +50,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2021-11-29 11:47:03        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2021-12-03 02:44:19        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -59,7 +59,7 @@
 <div class="row">
     <div class="column">
         <div class="bloc">
-            <h4>Package relations</h4>
+            <h4>Object relations</h4>
             <div id="chart-relations"></div>
         </div>
     </div>
@@ -94,7 +94,7 @@
                             <path d="M0 0h24v24H0z" fill="none"/>
                             <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
                         </svg>
-                        Violations (4)
+                        Violations (3)
                     </a>
                 </li>
                                     <li>
@@ -249,202 +249,589 @@
 
     var relations = [
     {
-        "name": "App\\Console",
+        "name": "\\App\\Console\\Kernel",
         "size": 3000,
         "relations": [
-            "Illuminate\\Foundation\\Console",
-            "Illuminate\\Console\\Scheduling"
+            "\\Illuminate\\Foundation\\Console\\Kernel",
+            "\\Illuminate\\Console\\Scheduling\\Schedule"
         ]
     },
     {
-        "name": "Illuminate\\Foundation\\Console",
+        "name": "\\Illuminate\\Foundation\\Console\\Kernel",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "Illuminate\\Console\\Scheduling",
+        "name": "\\Illuminate\\Console\\Scheduling\\Schedule",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "App\\Exceptions",
+        "name": "\\App\\Exceptions\\Handler",
         "size": 3000,
         "relations": [
-            "Illuminate\\Foundation\\Exceptions"
+            "\\Illuminate\\Foundation\\Exceptions\\Handler"
         ]
     },
     {
-        "name": "Illuminate\\Foundation\\Exceptions",
+        "name": "\\Illuminate\\Foundation\\Exceptions\\Handler",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "App\\Http\\Controllers",
+        "name": "\\App\\Http\\Controllers\\AdminController",
         "size": 3000,
         "relations": [
-            "global",
-            "App\\Models",
-            "Illuminate\\Http",
-            "Illuminate\\Routing",
-            "Illuminate\\Support\\Facades",
-            "Carbon"
+            "\\App\\Http\\Controllers\\Controller",
+            "\\Auth",
+            "\\App\\Models\\DocPendukung",
+            "\\App\\Models\\Perubahan",
+            "\\DB",
+            "\\Illuminate\\Http\\Request",
+            "\\App\\Models\\Mahasiswa"
         ]
     },
     {
-        "name": "global",
+        "name": "\\App\\Http\\Controllers\\Controller",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "App\\Models",
+        "name": "\\Auth",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Models\\DocPendukung",
         "size": 3000,
         "relations": [
-            "Illuminate\\Database\\Eloquent",
-            "Illuminate\\Foundation\\Auth"
+            "\\Illuminate\\Database\\Eloquent\\Model"
         ]
     },
     {
-        "name": "Illuminate\\Http",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Routing",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Support\\Facades",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Carbon",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "App\\Http\\Controllers\\Auth",
+        "name": "\\App\\Models\\Perubahan",
         "size": 3000,
         "relations": [
-            "App\\Http\\Controllers",
-            "Illuminate\\Support\\Facades",
-            "App\\Models"
+            "\\Illuminate\\Database\\Eloquent\\Model"
         ]
     },
     {
-        "name": "App\\Http",
+        "name": "\\DB",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Http\\Request",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Models\\Mahasiswa",
         "size": 3000,
         "relations": [
-            "Illuminate\\Foundation\\Http"
+            "\\Illuminate\\Database\\Eloquent\\Model"
         ]
     },
     {
-        "name": "Illuminate\\Foundation\\Http",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "App\\Http\\Middleware",
+        "name": "\\App\\Http\\Controllers\\Auth\\ConfirmPasswordController",
         "size": 3000,
         "relations": [
-            "Illuminate\\Http",
-            "global",
-            "Illuminate\\Auth\\Middleware",
-            "Illuminate\\Cookie\\Middleware",
-            "Illuminate\\Foundation\\Http\\Middleware",
-            "Illuminate\\Support\\Facades",
-            "Illuminate\\Http\\Middleware"
+            "\\App\\Http\\Controllers\\Controller"
         ]
     },
     {
-        "name": "Illuminate\\Auth\\Middleware",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Cookie\\Middleware",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Foundation\\Http\\Middleware",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Http\\Middleware",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Database\\Eloquent",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Foundation\\Auth",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "App\\Providers",
+        "name": "\\App\\Http\\Controllers\\Auth\\ForgotPasswordController",
         "size": 3000,
         "relations": [
-            "Illuminate\\Support",
-            "Illuminate\\Foundation\\Support\\Providers",
-            "Illuminate\\Support\\Facades",
-            "Illuminate\\Cache\\RateLimiting"
+            "\\App\\Http\\Controllers\\Controller"
         ]
     },
     {
-        "name": "Illuminate\\Support",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Foundation\\Support\\Providers",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Cache\\RateLimiting",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Database\\Factories",
+        "name": "\\App\\Http\\Controllers\\Auth\\LoginController",
         "size": 3000,
         "relations": [
-            "Illuminate\\Database\\Eloquent\\Factories",
-            "Illuminate\\Support",
-            "Illuminate\\Database\\Migrations",
-            "Illuminate\\Support\\Facades"
+            "\\App\\Http\\Controllers\\Controller"
         ]
     },
     {
-        "name": "Illuminate\\Database\\Eloquent\\Factories",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Database\\Migrations",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Database\\Seeders",
+        "name": "\\App\\Http\\Controllers\\Auth\\RegisterController",
         "size": 3000,
         "relations": [
-            "Illuminate\\Database",
-            "global",
-            "Carbon"
+            "\\App\\Http\\Controllers\\Controller",
+            "\\Illuminate\\Support\\Facades\\Validator",
+            "\\Illuminate\\Support\\Facades\\Hash",
+            "\\App\\Models\\User"
         ]
     },
     {
-        "name": "Illuminate\\Database",
+        "name": "\\Illuminate\\Support\\Facades\\Validator",
         "size": 3000,
         "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Support\\Facades\\Hash",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Models\\User",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Auth\\User"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\Auth\\ResetPasswordController",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\Auth\\VerificationController",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Routing\\Controller",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\DocController",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\Illuminate\\Http\\Request",
+            "\\Auth",
+            "\\App\\Models\\DocPendukung",
+            "\\Illuminate\\Support\\Facades\\File"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Support\\Facades\\File",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\HomeController",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\Auth",
+            "\\Illuminate\\Http\\Request"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\JenisController",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\App\\Models\\Jenis",
+            "\\Illuminate\\Http\\Request"
+        ]
+    },
+    {
+        "name": "\\App\\Models\\Jenis",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Eloquent\\Model"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\MahasiswaController",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\Auth",
+            "\\App\\Models\\Mahasiswa",
+            "\\App\\Models\\Jenis",
+            "\\Illuminate\\Http\\Request",
+            "\\App\\Models\\Perubahan",
+            "\\DB",
+            "\\App\\Models\\DocPendukung"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\UserController",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\App\\Models\\User",
+            "\\App\\Http\\Controllers\\Validator",
+            "\\Illuminate\\Http\\Request",
+            "\\Hash",
+            "\\Carbon\\Carbon"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\Validator",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Hash",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Carbon\\Carbon",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Kernel",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Http\\Kernel"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Http\\Kernel",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\AdminMiddleware",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Http\\Request",
+            "\\Closure",
+            "\\Auth"
+        ]
+    },
+    {
+        "name": "\\Closure",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\Authenticate",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Auth\\Middleware\\Authenticate"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Auth\\Middleware\\Authenticate",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\EncryptCookies",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Cookie\\Middleware\\EncryptCookies"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Cookie\\Middleware\\EncryptCookies",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\MahasiswaMiddleware",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Http\\Request",
+            "\\Closure",
+            "\\Auth"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\RedirectIfAuthenticated",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Http\\Request",
+            "\\Closure",
+            "\\Illuminate\\Support\\Facades\\Auth"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Support\\Facades\\Auth",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\TrimStrings",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\TrustHosts",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Http\\Middleware\\TrustHosts"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Http\\Middleware\\TrustHosts",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\TrustProxies",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Http\\Middleware\\TrustProxies"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Http\\Middleware\\TrustProxies",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Middleware\\VerifyCsrfToken",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Database\\Eloquent\\Model",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Auth\\User",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Providers\\AppServiceProvider",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Support\\ServiceProvider"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Support\\ServiceProvider",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Providers\\AuthServiceProvider",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Providers\\BroadcastServiceProvider",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Support\\ServiceProvider",
+            "\\Illuminate\\Support\\Facades\\Broadcast"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Support\\Facades\\Broadcast",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Providers\\EventServiceProvider",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Providers\\RouteServiceProvider",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
+            "\\Illuminate\\Support\\Facades\\Route",
+            "\\Illuminate\\Cache\\RateLimiting\\Limit",
+            "\\Illuminate\\Support\\Facades\\RateLimiter"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Support\\Facades\\Route",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Cache\\RateLimiting\\Limit",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Support\\Facades\\RateLimiter",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Database\\Factories\\UserFactory",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Eloquent\\Factories\\Factory",
+            "\\Illuminate\\Support\\Str"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Database\\Eloquent\\Factories\\Factory",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Support\\Str",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\CreatePasswordResetsTable",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Migrations\\Migration",
+            "\\Illuminate\\Support\\Facades\\Schema"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Database\\Migrations\\Migration",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Support\\Facades\\Schema",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\CreateFailedJobsTable",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Migrations\\Migration",
+            "\\Illuminate\\Support\\Facades\\Schema"
+        ]
+    },
+    {
+        "name": "\\CreatePersonalAccessTokensTable",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Migrations\\Migration",
+            "\\Illuminate\\Support\\Facades\\Schema"
+        ]
+    },
+    {
+        "name": "\\CreateDataMahasiswa",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Migrations\\Migration",
+            "\\Illuminate\\Support\\Facades\\Schema"
+        ]
+    },
+    {
+        "name": "\\CreateUsersTable",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Migrations\\Migration",
+            "\\Illuminate\\Support\\Facades\\Schema"
+        ]
+    },
+    {
+        "name": "\\CreateJenisPerubahanTable",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Migrations\\Migration",
+            "\\Illuminate\\Support\\Facades\\Schema"
+        ]
+    },
+    {
+        "name": "\\CreatePerubahanTable",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Migrations\\Migration",
+            "\\Illuminate\\Support\\Facades\\Schema"
+        ]
+    },
+    {
+        "name": "\\CreateDocPendukungTable",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Migrations\\Migration",
+            "\\Illuminate\\Support\\Facades\\Schema"
+        ]
+    },
+    {
+        "name": "\\Database\\Seeders\\DatabaseSeeder",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Seeder"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Database\\Seeder",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Database\\Seeders\\JenisSeeder",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Seeder",
+            "\\DB"
+        ]
+    },
+    {
+        "name": "\\Database\\Seeders\\MahasiswaSeeder",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Seeder",
+            "\\DB"
+        ]
+    },
+    {
+        "name": "\\Database\\Seeders\\UserSeeder",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Seeder",
+            "\\DB",
+            "\\Hash",
+            "\\Carbon\\Carbon"
+        ]
     }
 ];
 
@@ -456,7 +843,7 @@
 
         var diameter = document.getElementById('chart-relations').offsetWidth,
             radius = diameter / 2,
-            innerRadius = radius - 320;
+            innerRadius = radius - 120;
 
         var cluster = d3.layout.cluster()
             .size([360, innerRadius])
@@ -567,16 +954,16 @@
 
             function find(name, data) {
                 name = (data ? name + ' ' : name);
-                var node = map[name];
+                var node = map[name], i;
                 if (!node) {
                     node = map[name] = data || {name: name, children: []};
                     if (name.length) {
-                        node.parent = find("");
+                        node.parent = find(name.substring(0, i = name.lastIndexOf("\\")));
                         if (!node.parent.children) {
                             node.parent.children = []; // fix anomalies
                         }
                         node.parent.children.push(node);
-                        node.key = name.trim();
+                        node.key = name;//name.substring(i + 1);
                     }
                 }
                 return node;
