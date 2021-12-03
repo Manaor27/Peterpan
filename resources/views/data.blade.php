@@ -70,17 +70,17 @@
                             <td style="text-align: center"><span class="label bg-red">{{ $dc->status }}</span></td>
                             @else
                               @if($dc->jenid==1 && $dc->ktm!=null)
-                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Submit Untuk Mengajukan Perubahan</span></td>
                               @elseif($dc->jenid==2 && $dc->ktm!=null)
-                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Submit Untuk Mengajukan Perubahan</span></td>
                               @elseif($dc->jenid==3 && $dc->akte!=null)
-                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Submit Untuk Mengajukan Perubahan</span></td>
                               @elseif($dc->jenid==4 && $dc->ktm!=null)
-                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Submit Untuk Mengajukan Perubahan</span></td>
                               @elseif($dc->jenid==5 && $dc->ktm!=null)
-                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Submit Untuk Mengajukan Perubahan</span></td>
                               @elseif($dc->jenid==6 && $dc->surat!=null)
-                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Submit Untuk Mengajukan Perubahan</span></td>
                               @endif
                             @endif
                             <td style="text-align: center">
@@ -212,7 +212,19 @@
                       @csrf
                       @method('PUT')
                         <div class="box-footer">
-                          <button type="submit" class="btn btn-primary">Simpan</button>
+                        @if($dt->jenid==1 && $dt->ktm!=null && $dt->status!='disetujui')
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        @elseif($dt->jenid==2 && $dt->ktm!=null && $dt->status!='disetujui')
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        @elseif($dt->jenid==3 && $dt->akte!=null && $dt->status!='disetujui')
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        @elseif($dt->jenid==4 && $dt->ktm!=null && $dt->status!='disetujui')
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        @elseif($dt->jenid==5 && $dt->ktm!=null && $dt->status!='disetujui')
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        @elseif($dt->jenid==6 && $dt->surat!=null && $dt->status!='disetujui')
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        @endif
                         </div>
                       </form>
                     </div>

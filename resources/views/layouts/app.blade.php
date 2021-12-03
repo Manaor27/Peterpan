@@ -193,13 +193,23 @@
         </li-->
         @else
         <li>
+          <a href="/dataPermohonan">
+            <i class="fa fa-file"></i> <span>Data Pengajuan</span>
+          </a>
+        </li>
+        <li>
+          <a href="/dataDisetujui">
+            <i class="fa fa-save"></i> <span>Data Disetujui</span>
+          </a>
+        </li>
+        <li>
           <a href="/user">
             <i class="fa fa-group"></i> <span>Manajemen User</span>
           </a>
         </li>
         <li>
           <a href="/jenis">
-            <i class="fa fa-group"></i> <span>Manajemen Jenis Perubahan</span>
+            <i class="fa fa-server"></i> <span>Manajemen Jenis Perubahan</span>
           </a>
         </li>
         @endif
@@ -304,6 +314,23 @@
       labels: ['CPU', 'DISK'],
       hideHover: 'auto'
     });
+</script>
+<script>
+  $(function () {
+    "use strict";
+
+    //DONUT CHART
+    var donut = new Morris.Donut({
+      element: 'sales-chart',
+      resize: true,
+      colors: ["#3c8dbc", "#f56954"],
+      data: [
+        {label: "Data Disetujui", value: 12},
+        {label: "Data Pengajuan", value: 30}
+      ],
+      hideHover: 'auto'
+    });
+  });
 </script>
 <script type="text/javascript">
     $("#dynamic-ar").click(function () {

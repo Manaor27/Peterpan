@@ -50,7 +50,7 @@ class MahasiswaController extends Controller
 
     public function uploadBerkas() {
         $doc = DB::table('doc_pendukung')->join('perubahan','id_perubahan','=','perubahan.id')->join('jenis','id_jenis','=','jenis.id')->select(DB::raw('jenis.jenis_perubahan as jenis_perubahan, perubahan.data_lama as data_lama, perubahan.data_baru as data_baru, perubahan.status as status, perubahan.keterangan as keterangan, doc_pendukung.ktm as ktm, doc_pendukung.khs as khs, doc_pendukung.ijazah as ijazah, doc_pendukung.transkrip as transkrip, doc_pendukung.akte as akte, doc_pendukung.kk as kk, doc_pendukung.surat as surat, perubahan.id as perubahanid, doc_pendukung.id as id, jenis.id as jenid'))->where('perubahan.id_user',Auth::user()->id)->where('perubahan.status',null)->orWhere('perubahan.status','on process')->orWhere('perubahan.status','ditolak')->get();
-        $data = DB::table('doc_pendukung')->join('perubahan','id_perubahan','=','perubahan.id')->select(DB::raw('perubahan.status as status, doc_pendukung.id as id, perubahan.id as perid'))->orderBy('id','desc')->limit('1')->get();
+        $data = DB::table('doc_pendukung')->join('perubahan','id_perubahan','=','perubahan.id')->join('jenis','id_jenis','=','jenis.id')->select(DB::raw('perubahan.status as status, doc_pendukung.id as id, perubahan.id as perid, jenis.id as jenid, doc_pendukung.ktm as ktm, doc_pendukung.khs as khs, doc_pendukung.ijazah as ijazah, doc_pendukung.transkrip as transkrip, doc_pendukung.akte as akte, doc_pendukung.kk as kk, doc_pendukung.surat as surat'))->orderBy('id','desc')->limit('1')->get();
         foreach ($data as $dt) {
             return view('data', compact('doc','dt'));
         }

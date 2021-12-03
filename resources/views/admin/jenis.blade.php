@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manajemen Jenis Perubahan</title>
-    <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
+    <link rel="icon" href="https://eclass.ukdw.ac.id/images/favicon.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 </head>
 <body>
@@ -26,7 +26,7 @@
           <div class="box">
             <div class="box-header">
               <div class="col-md-2">
-                <a type="button" class="btn btn-block btn-success" href="/user/tambah"><p class="fa fa-plus"> Tambah User</p></a>
+                <a type="button" class="btn btn-block btn-success" href="/jenis/tambah"><p class="fa fa-plus"> Tambah Jenis</p></a>
               </div>
             </div>
             <div class="box-body">
@@ -35,6 +35,7 @@
                   <tr>
                     <th>#</th>
                     <th>Jenis Perubahan</th>
+                    <th>Dokumen Pendukung</th>
                     <th colspan="2">AKSI</th>
                   </tr>
                 </thead>
@@ -46,6 +47,21 @@
                   <tr>
                     <td>{{ $no++ + (($jenis->currentPage()-1) * $jenis->perPage()) }}</td>
                     <td>{{ $u->jenis_perubahan }}</td>
+                    @if($u->id==1)
+                    <td><ul><li>Kartu Tanda Mahasiswa</li><li>Ijazah dan Transkrip</li><li>Kartu Hasil Studi</li></ul></td>
+                    @elseif($u->id==2)
+                    <td><ul><li>Akte Kelahiran</li><li>Kartu Keluarga</li><li>Kartu Tanda Mahasiswa</li><li>Ijazah dan Transkrip</li></ul></td>
+                    @elseif($u->id==3)
+                    <td><ul><li>Akte Kelahiran</li><li>Kartu Keluarga</li></ul></td>
+                    @elseif($u->id==4)
+                    <td><ul><li>Akte Kelahiran</li><li>Kartu Keluarga</li><li>Kartu Tanda Mahasiswa</li><li>Ijazah dan Transkrip</li></ul></td>
+                    @elseif($u->id==5)
+                    <td><ul><li>Akte Kelahiran</li><li>Kartu Keluarga</li><li>Kartu Tanda Mahasiswa</li><li>Ijazah dan Transkrip</li></ul></td>
+                    @elseif($u->id==6)
+                    <td>Surat Penerimaan Mahasiswa</td>
+                    @elseif($u->id==7)
+                    <td>Mengikuti Persyaratan Umum</td>
+                    @endif
                     <td>
                       <a class="btn btn-app bg-aqua" href="{{url('/user/edit/'. $u->id)}}">
                         <i class="fa fa-edit"></i> Ubah

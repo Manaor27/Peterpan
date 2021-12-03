@@ -12,9 +12,23 @@ use DB;
 class AdminController extends Controller
 {
     public function index() {
-        $user = Auth::user();
         $data = DocPendukung::all();
-        return view('admin.home', compact('user','data'));
+        return view('admin.home', compact('data'));
+    }
+
+    public function dataSetuju() {
+        $data = DocPendukung::all();
+        return view('admin.dsetuju', compact('data'));
+    }
+
+    public function dataAjuan() {
+        $data = DocPendukung::all();
+        return view('admin.dajuan', compact('data'));
+    }
+
+    public function laporan() {
+        $data = DocPendukung::all();
+        return view('admin.laporan', compact('data'));
     }
 
     public function preview($id) {

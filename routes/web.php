@@ -10,9 +10,6 @@ use App\Http\Controllers\DocController;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/test', function () {
-    return view('test1');
-});
 
 Route::get('/ubahdata', [MahasiswaController::class, 'ubahData']);
 Route::post('/simpan/perubahan', [MahasiswaController::class, 'simpanPerubahan']);
@@ -30,6 +27,9 @@ Route::get('/admin/preview/{id}', [AdminController::class, 'preview']);
 Route::put('/validasi/{id}', [AdminController::class, 'simpanValidasi']);
 Route::get('/admin/tampil/{id}/{id2}', [AdminController::class, 'tampil']);
 Route::get('/admin/validasi/{id}', [AdminController::class, 'validasi']);
+Route::get('/dataDisetujui', [AdminController::class, 'dataSetuju']);
+Route::get('/dataPermohonan', [AdminController::class, 'dataAjuan']);
+Route::get('/download', [AdminController::class, 'laporan']);
 
 Route::get('/user', [UserController::class, 'index']);
 Route::get('/user/tambah', [UserController::class, 'tambah']);
