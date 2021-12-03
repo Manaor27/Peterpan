@@ -33,7 +33,7 @@
     <a href="/upload" type="button" class="btn btn-danger fa fa-undo"> Kembali</a>
     @endif
     <div class="text-center">
-        <embed type="application/pdf" src="{{asset('khs/'.$d->khs)}}" width="700" height="600"></embed>
+      <embed src="{{ asset('khs/'.$d->khs) }}" width="600" height="500" alt="pdf" />
     </div>
     @endforeach
     </section>

@@ -52,7 +52,7 @@
                             <th>Jenis Perubahan</th>
                             <th>Data Lama</th>
                             <th>Data Baru</th>
-                            <th>Status</th>
+                            <th style="text-align: center">Status</th>
                             <th style="text-align: center">Action</th>
                           </tr>
                         </thead>
@@ -63,18 +63,32 @@
                             <td>{{ $dc->data_lama }}</td>
                             <td>{{ $dc->data_baru }}</td>
                             @if($dc->status=='disetujui')
-                            <td><span class="label bg-green">{{ $dc->status }}</span></td>
+                            <td style="text-align: center"><span class="label bg-green">{{ $dc->status }}</span></td>
                             @elseif($dc->status=='on process')
-                            <td><span class="label bg-yellow">{{ $dc->status }}</span></td>
+                            <td style="text-align: center"><span class="label bg-yellow">{{ $dc->status }}</span></td>
+                            @elseif($dc->status=='ditolak')
+                            <td style="text-align: center"><span class="label bg-red">{{ $dc->status }}</span></td>
                             @else
-                            <td><span class="label bg-red">{{ $dc->status }}</span></td>
+                              @if($dc->jenid==1 && $dc->ktm!=null)
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              @elseif($dc->jenid==2 && $dc->ktm!=null)
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              @elseif($dc->jenid==3 && $dc->akte!=null)
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              @elseif($dc->jenid==4 && $dc->ktm!=null)
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              @elseif($dc->jenid==5 && $dc->ktm!=null)
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              @elseif($dc->jenid==6 && $dc->surat!=null)
+                              <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Simpan Untuk Validasi Proses</span></td>
+                              @endif
                             @endif
                             <td style="text-align: center">
-                            @if($dc->status=='ditolak')
+                            @if($dc->status=='ditolak' || $dc->status==null)
                               <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $dc->id)}}">
                                 <i class="fa fa-edit"></i> Edit
                               </a>
-                              <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $dc->id)}}">
+                              <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $dc->perubahanid)}}">
                                 <i class="fa fa-remove"></i> Delete
                               </a>
                             @else
@@ -123,15 +137,6 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/1')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->keterangan!=null)
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @else
-                            <a class="btn btn-app bg-red" href="#" disabled>
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @endif
                           </td>
                         </tr>
                         @endif
@@ -143,15 +148,6 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/2')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->keterangan!=null)
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @else
-                            <a class="btn btn-app bg-red" href="#" disabled>
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @endif
                           </td>
                         </tr>
                         @endif
@@ -163,15 +159,6 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/3')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->keterangan!=null)
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @else
-                            <a class="btn btn-app bg-red" href="#" disabled>
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @endif
                           </td>
                         </tr>
                         @endif
@@ -183,15 +170,6 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/4')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->keterangan!=null)
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @else
-                            <a class="btn btn-app bg-red" href="#" disabled>
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @endif
                           </td>
                         </tr>
                         @endif
@@ -203,15 +181,6 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/5')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->keterangan!=null)
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @else
-                            <a class="btn btn-app bg-red" href="#" disabled>
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @endif
                           </td>
                         </tr>
                         @endif
@@ -223,15 +192,6 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/6')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->keterangan!=null)
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @else
-                            <a class="btn btn-app bg-red" href="#" disabled>
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @endif
                           </td>
                         </tr>
                         @endif
@@ -243,15 +203,6 @@
                             <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/tampil/7')}}">
                               <i class="fa fa-eye"></i> Preview
                             </a>
-                            @if($d->keterangan!=null)
-                            <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete')}}">
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @else
-                            <a class="btn btn-app bg-red" href="#" disabled>
-                              <i class="fa fa-remove"></i> Delete
-                            </a>
-                            @endif
                           </td>
                         </tr>
                         @endif

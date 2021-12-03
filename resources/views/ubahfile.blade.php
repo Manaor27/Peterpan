@@ -37,13 +37,21 @@
             <div class="tab-content">
               <!-- Font Awesome Icons -->
               <div class="tab-pane" id="up">
+              <form role="form" action="/update/{{$u->id}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
               <div class="box-body">
                 <div class="form-group">
                   <label>Jenis Perubahan</label>
-                  <select name="jenis" class="form-control" readonly>
+                  <select name="jenis" class="form-control">
                     <option value="{{ $u->perubahan->jenis->id }}">
                         {{ $u->perubahan->jenis->jenis_perubahan }}
                     </option>
+                    @foreach($jns as $j)
+                    <option value="{{ $j->id }}">
+                        {{ $j->jenis_perubahan }}
+                    </option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="form-group">
@@ -52,7 +60,7 @@
                 </div>
                 <div class="form-group">
                   <label>Data Baru</label>
-                  <input type="text" class="form-control" name="data_baru" value="{{ $u->perubahan->data_baru }}" readonly>
+                  <input type="text" class="form-control" name="data_baru" value="{{ $u->perubahan->data_baru }}">
                 </div>
               </div>
               </div>
@@ -65,9 +73,7 @@
                 <div class="box-header with-border">
                   <h3 class="box-title">Horizontal Form</h3>
                 </div>
-                <form role="form" action="/update/{{$u->id}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
+                
                   <div class="box-body">
                   @if($u->perubahan->id_jenis!=6 && $u->perubahan->id_jenis!=7)
                     <div class="form-group">

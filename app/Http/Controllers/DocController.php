@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\File;
 use Auth;
 use DB;
 use App\Models\DocPendukung;
+use App\Models\Perubahan;
+use App\Models\Jenis;
 
 class DocController extends Controller
 {
@@ -74,81 +76,76 @@ class DocController extends Controller
 
     public function edit($id) {
         $u = DocPendukung::find($id);
-        return view('ubahfile', compact('u'));
+        $jns = Jenis::all();
+        return view('ubahfile', compact('u','jns'));
     }
 
     public function update(Request $request, $id) {
         $ktm = $request->file('ktm');
-        $oldktm = $request->file('oldktm');
+        $oldktm = $request->oldktm;
         if ($ktm==null) {
-            $ktmName = $oldktm->getClientOriginalName();
-            $oldktm->move('ktm/', $ktmName);
+            $ktmName = $oldktm;
         }else {
             $ktmName = 'ktm_'.Auth::user()->mahasiswa->nim. $ktm->getClientOriginalName();
             File::delete($oldktm);
             $ktm->move('ktm/', $ktmName);
         }
         $ijazah = $request->file('ijazah');
-        $oldijazah = $request->file('oldijazah');
+        $oldijazah = $request->oldijazah;
         if ($ijazah==null) {
-            $ijazahName = $oldijazah->getClientOriginalName();
-            $oldijazah->move('ijazah/', $ijazahName);
+            $ijazahName = $oldijazah;
         }else {
             $ijazahName = 'ijazah_'. Auth::user()->mahasiswa->nim. $ijazah->getClientOriginalName();
             File::delete($oldijazah);
             $ijazah->move('ijazah/', $ijazahName);
         }
         $transkrip = $request->file('transkrip');
-        $oldtranskrip = $request->file('oldtranskrip');
+        $oldtranskrip = $request->oldtranskrip;
         if ($transkrip==null) {
-            $transkripName = $oldtranskrip->getClientOriginalName();
-            $oldtranskrip->move('transkrip/', $transkripName);
+            $transkripName = $oldtranskrip;
         }else {
             $transkripName = 'transkrip_'. Auth::user()->mahasiswa->nim. $transkrip->getClientOriginalName();
             File::delete($oldtranskrip);
             $transkrip->move('transkrip/', $transkripName);
         }
         $khs = $request->file('khs');
-        $oldkhs = $request->file('oldkhs');
+        $oldkhs = $request->oldkhs;
         if ($khs==null) {
-            $khsName = $oldkhs->getClientOriginalName();
-            $oldkhs->move('khs/', $khsName);
+            $khsName = $oldkhs;
         }else {
             $khsName = 'khs_'. Auth::user()->mahasiswa->nim. $khs->getClientOriginalName();
             File::delete($oldkhs);
             $khs->move('khs/', $khsName);
         }
         $akte = $request->file('akte');
-        $oldakte = $request->file('oldakte');
+        $oldakte = $request->oldakte;
         if ($akte==null) {
-            $akteName = $oldakte->getClientOriginalName();
-            $oldakte->move('akte/', $akteName);
+            $akteName = $oldakte;
         }else {
             $akteName = 'akte_'. Auth::user()->mahasiswa->nim. $akte->getClientOriginalName();
             File::delete($oldakte);
             $akte->move('akte/', $akteName);
         }
         $kk = $request->file('kk');
-        $oldkk = $request->file('kk');
+        $oldkk = $request->kk;
         if ($kk==null) {
-            $kkName = $oldkk->getClientOriginalName();
-            $oldkk->move('kk/', $kkName);
+            $kkName = $oldkk;
         }else {
             $kkName = 'kk_'. Auth::user()->mahasiswa->nim. $kk->getClientOriginalName();
             File::delete($oldkk);
             $kk->move('kk/', $kkName);
         }
         $surat = $request->file('surat');
-        $oldsurat = $request->file('oldsurat');
+        $oldsurat = $request->oldsurat;
         if ($surat==null) {
-            $suratName = $oldsurat->getClientOriginalName();
-            $oldsurat->move('surat/', $suratName);
+            $suratName = $oldsurat;
         }else {
             $suratName = 'surat_'. Auth::user()->mahasiswa->nim. $surat->getClientOriginalName();
             File::delete($oldsurat);
             $surat->move('surat/', $suratName);
         }
         $doc = DocPendukung::find($id);
+        $per = Perubahan::find($id);
         $doc->ktm = $ktmName;
         $doc->ijazah = $ijazahName;
         $doc->transkrip = $transkripName;
@@ -156,6 +153,9 @@ class DocController extends Controller
         $doc->akte = $akteName;
         $doc->kk = $kkName;
         $doc->surat = $suratName;
+        $per->id_jenis = $request->jenis;
+        $per->data_baru = $request->data_baru;
+        $per->save();
         $doc->save();
         return redirect('/upload');
     }
