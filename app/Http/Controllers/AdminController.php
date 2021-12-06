@@ -12,8 +12,9 @@ use DB;
 class AdminController extends Controller
 {
     public function index() {
-        $data = DocPendukung::all();
-        return view('admin.home', compact('data'));
+        $setuju = DB::table('doc_pendukung')->join('perubahan','id_perubahan','=','perubahan.id')->where('perubahan.status','disetujui')->count();
+        $proses = DB::table('doc_pendukung')->join('perubahan','id_perubahan','=','perubahan.id')->where('perubahan.status','!=','disetujui')->count();
+        return view('admin.home', compact('setuju','proses'));
     }
 
     public function dataSetuju() {
