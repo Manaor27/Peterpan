@@ -23,12 +23,14 @@
             </thead>
             <tbody>
             @foreach($data as $item)
+            @if($item->perubahan->status=='disetujui')
                 <tr>
                     <td>{{ $item->perubahan->jenis->jenis_perubahan }}</td>
                     <td>{{ $item->perubahan->user->mahasiswa->nama }}</td>
                     <td>{{ $item->perubahan->data_lama }}</td>
                     <td>{{ $item->perubahan->data_baru }}</td>
                 </tr>
+            @endif
             @endforeach
             </tbody>
         </table>

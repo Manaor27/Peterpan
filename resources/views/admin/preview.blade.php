@@ -74,7 +74,7 @@
                               </a>
                             </td>
                           </tr>
-                          @if($data->perubahan->keterangan!=null)
+                          @if($data->perubahan->status=='ditolak' || $data->perubahan->status!='disetujui')
                           <tr>
                             <th>Keterangan</th>
                             <td colspan="3" class="text-danger">{{ $data->perubahan->keterangan }}</td>

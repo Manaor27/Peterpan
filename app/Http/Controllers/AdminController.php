@@ -64,7 +64,9 @@ class AdminController extends Controller
     public function simpanValidasi($id, Request $request) {
         $valid = Perubahan::find($id);
         $valid->status = $request->status;
-        $valid->keterangan = $request->keterangan;
+        if ($request->status=='ditolak') {
+            $valid->keterangan = $request->keterangan;
+        }
         $valid->save();
         if ($request->status=='disetujui') {
             if ($valid->jenis->id==1) {

@@ -101,7 +101,7 @@
                             @endif
                             </td>
                           </tr>
-                          @if($dc->keterangan!=null)
+                          @if($dc->status!='disetujui' || $dc->status=='ditolak')
                           <tr>
                             <th>Keterangan</th>
                             <td colspan="3">{{ $dc->keterangan }}</td>
@@ -212,17 +212,17 @@
                       @csrf
                       @method('PUT')
                         <div class="box-footer">
-                        @if($dt->jenid==1 && $dt->ktm!=null && $dt->status!='disetujui')
+                        @if($dt->jenid==1 && $dt->ktm!=null && $dt->status=='ditolak' || $dt->status==null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==2 && $dt->ktm!=null && $dt->status!='disetujui')
+                        @elseif($dt->jenid==2 && $dt->ktm!=null && $dt->status=='ditolak' || $dt->status==null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==3 && $dt->akte!=null && $dt->status!='disetujui')
+                        @elseif($dt->jenid==3 && $dt->akte!=null && $dt->status=='ditolak' || $dt->status==null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==4 && $dt->ktm!=null && $dt->status!='disetujui')
+                        @elseif($dt->jenid==4 && $dt->ktm!=null && $dt->status=='ditolak' || $dt->status==null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==5 && $dt->ktm!=null && $dt->status!='disetujui')
+                        @elseif($dt->jenid==5 && $dt->ktm!=null && $dt->status=='ditolak' || $dt->status==null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==6 && $dt->surat!=null && $dt->status!='disetujui')
+                        @elseif($dt->jenid==6 && $dt->surat!=null && $dt->status=='ditolak' || $dt->status==null)
                           <button type="submit" class="btn btn-primary">Submit</button>
                         @endif
                         </div>
