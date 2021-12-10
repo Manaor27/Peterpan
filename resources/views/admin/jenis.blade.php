@@ -63,10 +63,10 @@
                     <td>Mengikuti Persyaratan Umum</td>
                     @endif
                     <td>
-                      <a class="btn btn-app bg-aqua" href="{{url('/user/edit/'. $u->id)}}">
+                      <a class="btn btn-app bg-aqua" href="{{url('/jenis/edit/'. $u->id)}}">
                         <i class="fa fa-edit"></i> Ubah
                       </a>
-                      <a class="btn btn-app bg-red" href="{{url('/user/delete/'. $u->id)}}">
+                      <a class="btn btn-app bg-red" href="{{url('/jenis/delete/'. $u->id)}}">
                         <i class="fa fa-remove"></i> Hapus
                       </a>
                     </td>

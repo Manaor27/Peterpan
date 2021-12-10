@@ -81,6 +81,8 @@
                               <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Submit Untuk Mengajukan Perubahan</span></td>
                               @elseif($dc->jenid==6 && $dc->surat!=null)
                               <td style="text-align: center"><span class="label text-red">Harap Tekan Tombol Submit Untuk Mengajukan Perubahan</span></td>
+                              @else
+                              <td></td>
                               @endif
                             @endif
                             <td style="text-align: center">
