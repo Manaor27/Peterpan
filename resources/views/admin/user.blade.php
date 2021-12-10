@@ -47,9 +47,14 @@
                 @foreach($user as $u)
                 <tbody>
                   <tr>
-                      <td>{{ $no++ + (($user->currentPage()-1) * $user->perPage()) }}</td>
+                    <td>{{ $no++ + (($user->currentPage()-1) * $user->perPage()) }}</td>
+                    @if($u->role=='admin')
                     <td>{{ $u->kode }}</td>
                     <td>{{ $u->name }}</td>
+                    @else
+                    <td>{{ $u->mahasiswa->nim }}</td>
+                    <td>{{ $u->mahasiswa->nama }}</td>
+                    @endif
                     <td>{{ $u->email }}</td>
                     <td>{{ $u->role }}</td>
                     <td>
