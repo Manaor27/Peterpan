@@ -29,6 +29,11 @@
               <label>Jenis Perubahan</label>
               <input type="text" class="form-control" name="jenis" placeholder="Input Jenis Perubahan" required>
             </div>
+            <div class="form-group">
+              <label>Dokumen Pendukung</label>
+              <input type="text" class="form-control" name="jenis" placeholder="Input Jenis Perubahan" required>
+              <small>Ex: Akte Kelahiran,Kartu Keluarga</small>
+            </div>
           </div>
           <div class="box-footer">
             <button type="submit" class="btn btn-primary">Kirim</button>

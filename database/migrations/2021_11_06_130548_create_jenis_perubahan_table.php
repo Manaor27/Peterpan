@@ -16,6 +16,7 @@ class CreateJenisPerubahanTable extends Migration
         Schema::create('jenis', function (Blueprint $table) {
             $table->id();
             $table->string('jenis_perubahan');
+            $table->string('doc_pendukung');
             $table->timestamps();
         });
     }

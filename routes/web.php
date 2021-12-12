@@ -21,6 +21,7 @@ Route::get('/perubahan', [MahasiswaController::class, 'arsip']);
 
 Route::put('/save/{id}', [DocController::class, 'save']);
 Route::get('/mahasiswa/edit/{id}', [DocController::class, 'edit']);
+Route::get('/mahasiswa/delete/{id}', [MahasiswaController::class, 'delete']);
 Route::put('/update/{id}', [DocController::class, 'update']);
 
 Route::get('/admin/preview/{id}', [AdminController::class, 'preview']);

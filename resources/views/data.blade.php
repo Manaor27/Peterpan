@@ -90,14 +90,7 @@
                               <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $dc->id)}}">
                                 <i class="fa fa-edit"></i> Edit
                               </a>
-                              <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $dc->perubahanid)}}">
-                                <i class="fa fa-remove"></i> Delete
-                              </a>
-                            @else
-                              <a class="btn btn-app bg-aqua" href="#" disabled>
-                                <i class="fa fa-edit"></i> Edit
-                              </a>
-                              <a class="btn btn-app bg-red" href="#" disabled>
+                              <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $dc->perubahanid)}}" onclick="return confirm('Apakah anda yakin mau menghapus data?');">
                                 <i class="fa fa-remove"></i> Delete
                               </a>
                             @endif
@@ -214,17 +207,17 @@
                       @csrf
                       @method('PUT')
                         <div class="box-footer">
-                        @if($dt->jenid==1 && $dt->ktm!=null && $dt->status=='ditolak' || $dt->status==null)
+                        @if($dt->jenid==1 && $dt->ktm!=null || $dt->jenid==1 && $dt->status==null || $dt->jenid==1 && $dt->status=='ditolak')
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==2 && $dt->ktm!=null && $dt->status=='ditolak' || $dt->status==null)
+                        @elseif($dt->jenid==2 && $dt->ktm!=null || $dt->jenid==2 && $dt->status==null || $dt->jenid==2 && $dt->status=='ditolak')
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==3 && $dt->akte!=null && $dt->status=='ditolak' || $dt->status==null)
+                        @elseif($dt->jenid==3 && $dt->akte!=null || $dt->jenid==3 && $dt->status==null || $dt->jenid==3 && $dt->status=='ditolak')
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==4 && $dt->ktm!=null && $dt->status=='ditolak' || $dt->status==null)
+                        @elseif($dt->jenid==4 && $dt->ktm!=null || $dt->jenid==4 && $dt->status==null || $dt->jenid==4 && $dt->status=='ditolak')
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==5 && $dt->ktm!=null && $dt->status=='ditolak' || $dt->status==null)
+                        @elseif($dt->jenid==5 && $dt->ktm!=null | $dt->jenid==5 &&| $dt->status==null || $dt->jenid==5 && $dt->status=='ditolak')
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==6 && $dt->surat!=null && $dt->status=='ditolak' || $dt->status==null)
+                        @elseif($dt->jenid==6 && $dt->surat!=null || $dt->jenid==6 && $dt->status==null || $dt->jenid==6 && $dt->status=='ditolak')
                           <button type="submit" class="btn btn-primary">Submit</button>
                         @endif
                         </div>

@@ -45,7 +45,7 @@ class MahasiswaController extends Controller
     public function delete($id) {
         $per = Perubahan::find($id);
         $per->delete();
-        return redirect('/home');
+        return redirect('/upload');
     }
 
     public function uploadBerkas() {

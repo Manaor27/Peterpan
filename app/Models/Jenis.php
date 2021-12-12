@@ -9,7 +9,7 @@ class Jenis extends Model
 {
     use HasFactory;
     protected $table = "jenis";
-    protected $fillable = ['jenis_perubahan'];
+    protected $fillable = ['jenis_perubahan','doc_pendukung'];
 
     public function perubahan() {
       return $this->hasOne(Perubahan::class, 'id_jenis');

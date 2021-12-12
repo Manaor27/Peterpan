@@ -29,7 +29,12 @@
           <div class="box-body">
             <div class="form-group">
               <label>Jenis Perubahan</label>
-              <input type="text" class="form-control" name="jenis" placeholder="Input Jenis Perubahan" value="{{ $jenis->jenis_perubahan }}">
+              <input type="text" class="form-control" name="jenis" placeholder="Input Jenis Perubahan" value="{{ $jenis->jenis_perubahan }}" required>
+            </div>
+            <div class="form-group">
+              <label>Dokumen Pendukung</label>
+              <input type="text" class="form-control" name="jenis" placeholder="Input Jenis Perubahan" value="{{ $jenis->doc_pendukung }}" required>
+              <small>Ex: Akte Kelahiran,Kartu Keluarga</small>
             </div>
           </div>
           <div class="box-footer">

@@ -47,21 +47,7 @@
                   <tr>
                     <td>{{ $no++ + (($jenis->currentPage()-1) * $jenis->perPage()) }}</td>
                     <td>{{ $u->jenis_perubahan }}</td>
-                    @if($u->id==1)
-                    <td><ul><li>Kartu Tanda Mahasiswa</li><li>Ijazah dan Transkrip</li><li>Kartu Hasil Studi</li></ul></td>
-                    @elseif($u->id==2)
-                    <td><ul><li>Akte Kelahiran</li><li>Kartu Keluarga</li><li>Kartu Tanda Mahasiswa</li><li>Ijazah dan Transkrip</li></ul></td>
-                    @elseif($u->id==3)
-                    <td><ul><li>Akte Kelahiran</li><li>Kartu Keluarga</li></ul></td>
-                    @elseif($u->id==4)
-                    <td><ul><li>Akte Kelahiran</li><li>Kartu Keluarga</li><li>Kartu Tanda Mahasiswa</li><li>Ijazah dan Transkrip</li></ul></td>
-                    @elseif($u->id==5)
-                    <td><ul><li>Akte Kelahiran</li><li>Kartu Keluarga</li><li>Kartu Tanda Mahasiswa</li><li>Ijazah dan Transkrip</li></ul></td>
-                    @elseif($u->id==6)
-                    <td>Surat Penerimaan Mahasiswa</td>
-                    @elseif($u->id==7)
-                    <td>Mengikuti Persyaratan Umum</td>
-                    @endif
+                    <td>{{ $u->doc_pendukung }}</td>
                     <td>
                       <a class="btn btn-app bg-aqua" href="{{url('/jenis/edit/'. $u->id)}}">
                         <i class="fa fa-edit"></i> Ubah
