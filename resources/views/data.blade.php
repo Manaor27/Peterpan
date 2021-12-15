@@ -37,13 +37,7 @@
               <div class="tab-pane active" id="update">
                 <section id="new">
                   <div class="box">
-                    <div class="box-header">
-                      <div class="col-md-4">
-                        @if($dt->status!='on process' && $dt->status!='disetujui')
-                        <a type="button" class="btn btn-block btn-success fa fa-upload" href="{{url('/simpan/berkas/'. $dt->id)}}"><b> Upload Berkas </b></a>
-                        @endif
-                      </div>
-                    </div>
+                    
                     <!-- /.box-header -->
                     <div class="box-body">
                       <table class="table border" >
@@ -110,6 +104,9 @@
                   </div>
                   <div class="box">
                     <div class="box-header">
+                    @if($dt->status!='on process' && $dt->status!='disetujui')
+                        <a type="button" class="btn btn-block btn-success fa fa-upload" href="{{url('/simpan/berkas/'. $dt->id)}}"><b> Upload Berkas </b></a>
+                        @endif
                       <h3 class="box-title">Berkas Pendukung</h3>
                     </div>
                     <!-- /.box-header -->

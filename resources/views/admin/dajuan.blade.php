@@ -60,6 +60,7 @@
                   <th>#</th>
                   <th>Jenis Perubahan</th>
                   <th>Nama Pemohon</th>
+                  <th>Tanggal</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -74,6 +75,7 @@
                   <td>{{ $no++ }}</td>
                   <td>{{ $item->perubahan->jenis->jenis_perubahan }}</td>
                   <td>{{ $item->perubahan->user->mahasiswa->nama }}</td>
+                  <td><?php echo date('d-m-Y', strtotime($item->perubahan->tanggal)); ?></td>
                   @if($item->perubahan->status=='on process')
                   <td><span class="label bg-yellow">{{ $item->perubahan->status }}</span></td>
                   @elseif($item->perubahan->status=='disetujui')

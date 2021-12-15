@@ -59,6 +59,7 @@ class MahasiswaController extends Controller
     public function valid($id) {
         $vd = Perubahan::find($id);
         $vd->status = 'on process';
+        $vd->tanggal = date('Y-m-d');
         $vd->save();
         return redirect('/upload');
     }

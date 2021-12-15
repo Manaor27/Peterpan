@@ -10,7 +10,7 @@ class Perubahan extends Model
 {
     use HasFactory;
     protected $table = "perubahan";
-    protected $fillable = ['id_user','id_jenis','data_lama','data_baru','status','keterangan'];
+    protected $fillable = ['id_user','id_jenis','data_lama','data_baru','status','keterangan','tanggal'];
 
     public function jenis() {
       return $this->belongsTo(Jenis::class, 'id_jenis');

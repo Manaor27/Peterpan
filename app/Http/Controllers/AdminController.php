@@ -72,6 +72,7 @@ class AdminController extends Controller
             if ($valid->jenis->id==1) {
                 $mhs = Mahasiswa::find($valid->user->id_mhs);
                 $mhs->nim = $valid->data_baru;
+                $valid->save();
                 $mhs->save();
                 return redirect('/home');
             }elseif ($valid->jenis->id==2) {
