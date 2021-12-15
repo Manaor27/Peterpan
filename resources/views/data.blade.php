@@ -206,21 +206,25 @@
                       <form action="/valid/{{$dt->perid}}" method="post">
                       @csrf
                       @method('PUT')
+                      @if($dt->status!='disetujui')
                         <div class="box-footer">
-                        @if($dt->jenid==1 && $dt->ktm!=null || $dt->jenid==1 && $dt->status==null || $dt->jenid==1 && $dt->status=='ditolak')
+                        @if($dc->jenid==1 && $dc->ktm!=null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==2 && $dt->ktm!=null || $dt->jenid==2 && $dt->status==null || $dt->jenid==2 && $dt->status=='ditolak')
+                        @elseif($dc->jenid==2 && $dc->ktm!=null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==3 && $dt->akte!=null || $dt->jenid==3 && $dt->status==null || $dt->jenid==3 && $dt->status=='ditolak')
+                        @elseif($dc->jenid==3 && $dc->akte!=null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==4 && $dt->ktm!=null || $dt->jenid==4 && $dt->status==null || $dt->jenid==4 && $dt->status=='ditolak')
+                        @elseif($dc->jenid==4 && $dc->ktm!=null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==5 && $dt->ktm!=null | $dt->jenid==5 &&| $dt->status==null || $dt->jenid==5 && $dt->status=='ditolak')
+                        @elseif($dc->jenid==5 && $dc->ktm!=null)
                           <button type="submit" class="btn btn-primary">Submit</button>
-                        @elseif($dt->jenid==6 && $dt->surat!=null || $dt->jenid==6 && $dt->status==null || $dt->jenid==6 && $dt->status=='ditolak')
+                        @elseif($dc->jenid==6 && $dc->surat!=null)
                           <button type="submit" class="btn btn-primary">Submit</button>
+                        @elseif($dt->status=='ditolak')
+                        <button type="submit" class="btn btn-primary">Submit</button>
                         @endif
                         </div>
+                        @endif
                       </form>
                     </div>
                     <!-- /.box-body -->
